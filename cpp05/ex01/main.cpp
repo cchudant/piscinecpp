@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
 #include <exception>
 #include <iostream>
 
@@ -71,6 +72,58 @@ int main()
         Bureaucrat b1("Johnny", 150);
         b1.decrementGrade();
         std::cout << "Success: " << b1 << std::endl;
+    }
+    catch (std::exception &e)
+    {
+        std::cout << "Exception: " << e.what() << std::endl;
+    }
+
+    std::cout << "6." << std::endl;
+    try
+    {
+        Bureaucrat b1("Johnny", 150);
+        Form f1("Formulaire", 150);
+        b1.signForm(f1);
+        std::cout << "Success: " << b1 << " " << f1 << std::endl;
+    }
+    catch (std::exception &e)
+    {
+        std::cout << "Exception: " << e.what() << std::endl;
+    }
+
+    std::cout << "7." << std::endl;
+    try
+    {
+        Bureaucrat b1("Johnny", 160);
+        Form f1("Formulaire", 150);
+        b1.signForm(f1);
+        std::cout << "Success: " << b1 << " " << f1 << std::endl;
+    }
+    catch (std::exception &e)
+    {
+        std::cout << "Exception: " << e.what() << std::endl;
+    }
+
+    std::cout << "8." << std::endl;
+    try
+    {
+        Bureaucrat b1("Johnny", 150);
+        Form f1("Formulaire", 150);
+        f1.beSigned(b1);
+        std::cout << "Success: " << b1 << " " << f1 << std::endl;
+    }
+    catch (std::exception &e)
+    {
+        std::cout << "Exception: " << e.what() << std::endl;
+    }
+
+    std::cout << "9." << std::endl;
+    try
+    {
+        Bureaucrat b1("Johnny", 160);
+        Form f1("Formulaire", 150);
+        f1.beSigned(b1);
+        std::cout << "Success: " << b1 << " " << f1 << std::endl;
     }
     catch (std::exception &e)
     {

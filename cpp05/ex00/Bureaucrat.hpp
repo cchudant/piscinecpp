@@ -24,30 +24,17 @@ class Bureaucrat
         int _grade;
 
     public:
-        Bureaucrat(std::string name = "None", int grade = 150);
-        ~Bureaucrat();
-        Bureaucrat(const Bureaucrat &c);
-        Bureaucrat &operator=(const Bureaucrat &c);
+        Bureaucrat(std::string name, int grade);
 
         class GradeTooHighException: public std::exception
         {
             public:
-                GradeTooHighException();
-                virtual ~GradeTooHighException() throw();
-                GradeTooHighException(const GradeTooHighException &c);
-                GradeTooHighException &operator=(const GradeTooHighException &c);
-
                 virtual char const *what() const throw();
         };
 
         class GradeTooLowException: public std::exception
         {
             public:
-                GradeTooLowException();
-                virtual ~GradeTooLowException() throw();
-                GradeTooLowException(const GradeTooLowException &c);
-                GradeTooLowException &operator=(const GradeTooLowException &c);
-    
                 virtual char const *what() const throw();
         };
 

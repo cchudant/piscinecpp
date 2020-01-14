@@ -19,34 +19,21 @@ class Form
 {
     private:
         const std::string _name;
-        bool _signed;
         const int _grade;
+        bool _signed;
 
     public:
-        Form(std::string name = "None", int grade = 150);
-        ~Form();
-        Form(const Form &c);
-        Form &operator=(const Form &c);
+        Form(std::string name, int grade);
 
         class GradeTooHighException: public std::exception
         {
             public:
-                GradeTooHighException();
-                virtual ~GradeTooHighException() throw();
-                GradeTooHighException(const GradeTooHighException &c);
-                GradeTooHighException &operator=(const GradeTooHighException &c);
-
                 virtual char const *what() const throw();
         };
 
         class GradeTooLowException: public std::exception
         {
             public:
-                GradeTooLowException();
-                virtual ~GradeTooLowException() throw();
-                GradeTooLowException(const GradeTooLowException &c);
-                GradeTooLowException &operator=(const GradeTooLowException &c);
-    
                 virtual char const *what() const throw();
         };
 
@@ -54,7 +41,7 @@ class Form
         int getGrade() const;
         bool isSigned() const;
 
-        void Form::beSigned(Bureaucrat &bureaucrat);
+        void beSigned(Bureaucrat &bureaucrat);
 };
 
 std::ostream &operator<<(std::ostream &out, const Form &c);

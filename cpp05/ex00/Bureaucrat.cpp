@@ -14,50 +14,12 @@
 
 // Bureaucrat::GradeTooHighException
 
-Bureaucrat::GradeTooHighException::GradeTooHighException()
-{
-}
-
-Bureaucrat::GradeTooHighException::~GradeTooHighException() throw()
-{
-}
-
-Bureaucrat::GradeTooHighException::GradeTooHighException(const GradeTooHighException &c)
-{
-    (void)c;
-}
-
-Bureaucrat::GradeTooHighException &Bureaucrat::GradeTooHighException::operator=(const Bureaucrat::GradeTooHighException &c)
-{
-    (void)c;
-    return *this;
-}
-
 const char *Bureaucrat::GradeTooHighException::what() const throw()
 {
     return "The grade was too high!";
 }
 
 // Bureaucrat::GradeTooLowException
-
-Bureaucrat::GradeTooLowException::GradeTooLowException()
-{
-}
-
-Bureaucrat::GradeTooLowException::~GradeTooLowException() throw()
-{
-}
-
-Bureaucrat::GradeTooLowException::GradeTooLowException(const GradeTooLowException &c)
-{
-    (void)c;
-}
-
-Bureaucrat::GradeTooLowException &Bureaucrat::GradeTooLowException::operator=(const Bureaucrat::GradeTooLowException &c)
-{
-    (void)c;
-    return *this;
-}
 
 const char *Bureaucrat::GradeTooLowException::what() const throw()
 {
@@ -73,21 +35,6 @@ Bureaucrat::Bureaucrat(std::string name, int grade):
         throw Bureaucrat::GradeTooHighException();
     if (_grade > 150)
         throw Bureaucrat::GradeTooLowException();
-}
-
-Bureaucrat::~Bureaucrat()
-{
-}
-
-Bureaucrat::Bureaucrat(const Bureaucrat &c)
-{
-    (void)c;
-}
-
-Bureaucrat &Bureaucrat::operator=(const Bureaucrat &c)
-{
-    (void)c;
-    return *this;
 }
 
 const std::string &Bureaucrat::getName() const

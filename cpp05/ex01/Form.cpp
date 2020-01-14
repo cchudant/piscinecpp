@@ -14,50 +14,12 @@
 
 // Form::GradeTooHighException
 
-Form::GradeTooHighException::GradeTooHighException()
-{
-}
-
-Form::GradeTooHighException::~GradeTooHighException() throw()
-{
-}
-
-Form::GradeTooHighException::GradeTooHighException(const GradeTooHighException &c)
-{
-    (void)c;
-}
-
-Form::GradeTooHighException &Form::GradeTooHighException::operator=(const Form::GradeTooHighException &c)
-{
-    (void)c;
-    return *this;
-}
-
 const char *Form::GradeTooHighException::what() const throw()
 {
     return "The grade was too high!";
 }
 
 // Form::GradeTooLowException
-
-Form::GradeTooLowException::GradeTooLowException()
-{
-}
-
-Form::GradeTooLowException::~GradeTooLowException() throw()
-{
-}
-
-Form::GradeTooLowException::GradeTooLowException(const GradeTooLowException &c)
-{
-    (void)c;
-}
-
-Form::GradeTooLowException &Form::GradeTooLowException::operator=(const Form::GradeTooLowException &c)
-{
-    (void)c;
-    return *this;
-}
 
 const char *Form::GradeTooLowException::what() const throw()
 {
@@ -73,23 +35,6 @@ Form::Form(std::string name, int grade):
         throw Form::GradeTooHighException();
     if (_grade > 150)
         throw Form::GradeTooLowException();
-}
-
-Form::~Form()
-{
-}
-
-Form::Form(const Form &c):
-    _name(c._name), _grade(c._grade), _signed(c._signed)
-{
-}
-
-Form &Form::operator=(const Form &c)
-{
-    _name = c._name;
-    _grade = c._grade;
-    _signed = c._signed;
-    return *this;
 }
 
 const std::string &Form::getName() const
