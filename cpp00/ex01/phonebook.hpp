@@ -1,4 +1,19 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   phonebook.hpp                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: cchudant <cchudant@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/01/14 07:11:26 by cchudant          #+#    #+#             */
+/*   Updated: 2020/01/14 07:20:50 by cchudant         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <string>
+
+#ifndef PHONEBOOK_HPP
+# define PHONEBOOK_HPP
 
 class Contact {
     public:
@@ -11,3 +26,5 @@ class Contact {
         void display_compact(int index);
         void display();
 };
+
+#endif

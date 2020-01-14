@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ZombieEvent.cpp                                    :+:      :+:    :+:   */
+/*   ZombieHorde.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cchudant <cchudant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/01/14 07:22:22 by cchudant          #+#    #+#             */
-/*   Updated: 2020/01/14 07:22:33 by cchudant         ###   ########.fr       */
+/*   Created: 2020/01/14 07:31:04 by cchudant          #+#    #+#             */
+/*   Updated: 2020/01/14 07:41:53 by cchudant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "ZombieHorde.hpp"
 #include <cstdlib>
-#include "ZombieEvent.hpp"
 
 const std::string NAMES[] = {
     "Joe \"Chomped a Bear\" Walker",
@@ -31,28 +31,21 @@ static std::string getRandomName()
     return (NAMES[rand() % 10]);
 }
 
-ZombieEvent::ZombieEvent(std::string type)
+ZombieHorde::ZombieHorde(int N): _n(N)
 {
-    _type = type;
+	_zombies = new Zombie[N];
+
+	for (int i = 0; i < N; i++)
+		_zombies[i] = Zombie("Horde zombie", getRandomName());
 }
 
-Zombie *ZombieEvent::newZombie(std::string name) const
+ZombieHorde::~ZombieHorde()
 {
-    return new Zombie(_type, name);
+	delete[] _zombies;
 }
 
-void ZombieEvent::setZombieType(std::string type)
+void ZombieHorde::announce() const
 {
-    _type = type;
-}
-
-std::string ZombieEvent::getZombieType() const
-{
-    return _type;
-}
-
-void ZombieEvent::randomChump() const
-{
-    Zombie zombie(_type, getRandomName());
-    zombie.announce();
+	for (int i = 0; i < _n; i++)
+		_zombies[i].announce();
 }

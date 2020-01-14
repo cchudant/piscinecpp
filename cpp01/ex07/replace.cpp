@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   replace.cpp                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: cchudant <cchudant@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/01/14 08:00:06 by cchudant          #+#    #+#             */
+/*   Updated: 2020/01/14 08:04:17 by cchudant         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <string>
 #include <iostream>
 #include <fstream>
@@ -67,8 +79,6 @@ int main(int ac, char **av)
         }
         index = (index + 1) % findlen;
     }
-    std::cout << "reste " << len << std::endl;
-    printf("buf .%.3s.\n", queue);
     while (len > 0)
     {
         out << queue[(index + 1) % findlen];

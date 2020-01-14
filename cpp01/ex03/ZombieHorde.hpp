@@ -1,24 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ex04.cpp                                           :+:      :+:    :+:   */
+/*   ZombieHorde.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cchudant <cchudant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/01/14 07:42:16 by cchudant          #+#    #+#             */
-/*   Updated: 2020/01/14 07:42:17 by cchudant         ###   ########.fr       */
+/*   Created: 2020/01/14 07:29:06 by cchudant          #+#    #+#             */
+/*   Updated: 2020/01/14 07:36:35 by cchudant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string>
-#include <iostream>
+#ifndef ZOMBIEHORDE_HPP
+# define ZOMBIEHORDE_HPP
 
-int main()
+# include "Zombie.hpp"
+
+class ZombieHorde
 {
-    std::string s = "HI THIS IS BRAIN";
-    std::string *ptr = &s;
-    std::string &ref = s;
+	private:
+		Zombie *_zombies;
+		int _n;
 
-    std::cout << *ptr << std::endl;
-    std::cout << ref << std::endl;
-}
+	public:
+		ZombieHorde(int N);
+		~ZombieHorde();
+
+		void announce() const;
+};
+
+#endif
