@@ -4,7 +4,6 @@
 #include "phonebook.hpp"
 #include <cstdio>
 
-int Contact::next_index = 0;
 
 static void prompt(std::string &s)
 {
@@ -12,12 +11,12 @@ static void prompt(std::string &s)
     getline(std::cin, s);
 }
 
-Contact::Contact(Contact *&last)
+Contact::Contact()
 {
-    index = Contact::next_index++;
-    next = last;
-    last = this;
+}
 
+void Contact::ask()
+{
     std::cout << "Enter the first name:" << std::endl;
     prompt(first_name);
     std::cout << "Enter the last name:" << std::endl;
@@ -41,22 +40,23 @@ Contact::Contact(Contact *&last)
 
 static void display_column(std::string s)
 {
+    std::string::size_type is = 0;
     for (std::string::size_type i = 0; i < 9; i++)
     {
-        if (i >= s.length())
+        if (10 - i > s.length())
             std::cout << ' ';
         else
-            std::cout << s[i];
+            std::cout << s[is++];
     }
-    if (s.length() < 10)
+    if (!s.length())
         std::cout << ' ';
-    else if (s.length() == 10)
-        std::cout << s[9];
+    else if (s.length() <= 10)
+        std::cout << s[is];
     else
         std::cout << '.';
 }
 
-void Contact::display_compact()
+void Contact::display_compact(int index)
 {
     std::stringstream ss;
     ss << index;
@@ -84,11 +84,6 @@ void Contact::display()
     std::cout << "Darkest secret: " << darkest_secret << std::endl;
 }
 
-int Contact::get_index()
-{
-    return index;
-}
-
 static int parse_index(std::string s)
 {
     if (s.length() < 1)
@@ -107,32 +102,29 @@ static int parse_index(std::string s)
     return ret;
 }
 
-static void search_cmd(Contact *book)
+static void search_cmd(Contact book[8], int len)
 {
-    if (!book)
+    if (!len)
     {
-        std::cout << "You have no contact. Don't be sad, I know you are a cool dude." << std::endl;
+        std::cout << "You have no contact. Don't be sad, I know you are a cool person." << std::endl;
         return;
     }
 
     std::cout << " INDEX    |First name|Last name | Nickname " << std::endl;
     std::cout << "----------+----------+----------+----------" << std::endl;
 
-    for (Contact *c = book; c; c = c->next)
-        c->display_compact();
+    for (int i = 0; i < len; i++)
+        book[i].display_compact(i);
     std::string ind;
     std::cout << "Enter the index of the contact you want to see:" << std::endl;
     prompt(ind);
     int index = parse_index(ind);
     if (index >= 0)
     {
-        for (Contact *c = book; c; c = c->next)
-            if (index == c->get_index())
-            {
-                c->display();
-                return;
-            }
-        std::cout << "Could not find that contact. Abort." << std::endl;
+        if (index >= len)
+            std::cout << "Could not find that contact. Abort." << std::endl;
+        else
+            book[index].display();
     }
     else
         std::cout << "Index error. Abort." << std::endl;
@@ -141,7 +133,8 @@ static void search_cmd(Contact *book)
 int main()
 {
     std::string cmd;
-    Contact *book = NULL;
+    int len = 0;
+    Contact book[8];
 
     std::cout << "Welcome to your crappy phonebook!" << std::endl;
     do
@@ -150,9 +143,18 @@ int main()
         prompt(cmd);
 
         if (cmd == "ADD")
-            new Contact(book);
+        {
+            if (len == 8)
+            {
+                std::cout << "The book is full!" << std::endl;
+                continue;
+            }
+            book[len] = Contact();
+            book[len].ask();
+            len++;
+        }
         else if (cmd == "SEARCH")
-            search_cmd(book);
+            search_cmd(book, len);
         else if (cmd != "EXIT")
             std::cout << "Unknown command." << std::endl;
     }
