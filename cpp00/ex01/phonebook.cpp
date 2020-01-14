@@ -6,7 +6,7 @@
 /*   By: cchudant <cchudant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/14 07:11:24 by cchudant          #+#    #+#             */
-/*   Updated: 2020/01/14 07:11:51 by cchudant         ###   ########.fr       */
+/*   Updated: 2020/01/14 15:30:39 by cchudant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 #include <sstream>
 #include "phonebook.hpp"
 #include <cstdio>
-
 
 static void prompt(std::string &s)
 {
@@ -48,6 +47,107 @@ void Contact::ask()
     std::cout << "Enter the darkest secret:" << std::endl;
     prompt(darkest_secret);
     std::cout << "Contact created!" << std::endl;
+}
+
+
+const std::string &Contact::getFirstName() const
+{
+    return first_name;
+}
+
+const std::string &Contact::getLastName() const
+{
+    return last_name;
+}
+
+const std::string &Contact::getNickname() const
+{
+    return nickname;
+}
+
+const std::string &Contact::getLogin() const
+{
+    return login;
+}
+
+const std::string &Contact::getPostalAddress() const
+{
+    return postal_address;
+}
+
+const std::string &Contact::getPhoneNumber() const
+{
+    return phone_number;
+}
+
+const std::string &Contact::getBirthdayDate() const
+{
+    return birthday_date;
+}
+
+const std::string &Contact::getFavoriteMeal() const
+{
+    return favorite_meal;
+}
+
+const std::string &Contact::getUnderwearColor() const
+{
+    return underwear_color;
+}
+
+const std::string &Contact::getDarkestSecret() const
+{
+    return darkest_secret;
+}
+
+void Contact::setFirstName(std::string nw)
+{
+    first_name = nw;
+}
+
+void Contact::setLastName(std::string nw)
+{
+    last_name = nw;
+}
+
+void Contact::setNickname(std::string nw)
+{
+    nickname = nw;
+}
+
+void Contact::setLogin(std::string nw)
+{
+    login = nw;
+}
+
+void Contact::setPostalAddress(std::string nw)
+{
+    postal_address = nw;
+}
+
+void Contact::setPhoneNumber(std::string nw)
+{
+    phone_number = nw;
+}
+
+void Contact::setBirthdayDate(std::string nw)
+{
+    birthday_date = nw;
+}
+
+void Contact::setFavoriteMeal(std::string nw)
+{
+    favorite_meal = nw;
+}
+
+void Contact::setUnderwearColor(std::string nw)
+{
+    underwear_color = nw;
+}
+
+void Contact::setDarkestSecret(std::string nw)
+{
+    darkest_secret = nw;
 }
 
 static void display_column(std::string s)
