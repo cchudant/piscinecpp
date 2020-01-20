@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Fixed.cpp                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: cchudant <cchudant@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/01/14 14:55:50 by cchudant          #+#    #+#             */
+/*   Updated: 2020/01/14 14:58:17 by cchudant         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <iostream>
 #include <cmath>
 #include "Fixed.hpp"
@@ -42,10 +54,12 @@ void Fixed::setRawBits(const int raw)
 
 Fixed::Fixed(const int intValue): _raw(intValue << _fractionalBits)
 {
+    std::cout << "Int constructor called" << std::endl;
 }
 
 Fixed::Fixed(const float floatValue): _raw(roundf(floatValue * _shiftPower))
 {
+    std::cout << "Float constructor called" << std::endl;
 }
 
 float Fixed::toFloat() const

@@ -1,13 +1,25 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: cchudant <cchudant@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/01/14 14:55:57 by cchudant          #+#    #+#             */
+/*   Updated: 2020/01/14 14:58:37 by cchudant         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <iostream>
 #include "Fixed.hpp"
 
 int main()
 {
     Fixed a;
-    const Fixed b(10);
-    const Fixed c(42.42f);
-    const Fixed d(b);
-    
+    Fixed const b(10);
+    Fixed const c(42.42f);
+    Fixed const d(b);
+
     a = Fixed(1234.4321f);
 
     std::cout << "a is " << a << std::endl;

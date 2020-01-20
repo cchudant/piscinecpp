@@ -6,7 +6,7 @@
 /*   By: cchudant <cchudant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/14 07:51:19 by cchudant          #+#    #+#             */
-/*   Updated: 2020/01/14 07:53:50 by cchudant         ###   ########.fr       */
+/*   Updated: 2020/01/20 23:11:34 by cchudant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ class HumanB
         Weapon *weapon;
 
     public:
-        HumanB(std::string name, Weapon &weapon);
         HumanB(std::string name);
 
         std::string getName() const;

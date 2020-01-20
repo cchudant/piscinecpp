@@ -6,7 +6,7 @@
 /*   By: cchudant <cchudant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/14 07:51:14 by cchudant          #+#    #+#             */
-/*   Updated: 2020/01/14 07:53:42 by cchudant         ###   ########.fr       */
+/*   Updated: 2020/01/20 23:10:46 by cchudant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ class HumanA
 {
     private:
         std::string name;
-        Weapon *weapon;
+        Weapon &weapon;
 
     public:
         HumanA(std::string name, Weapon &weapon);

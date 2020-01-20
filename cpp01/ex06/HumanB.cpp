@@ -6,16 +6,12 @@
 /*   By: cchudant <cchudant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/14 07:53:33 by cchudant          #+#    #+#             */
-/*   Updated: 2020/01/14 07:53:34 by cchudant         ###   ########.fr       */
+/*   Updated: 2020/01/20 23:11:41 by cchudant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include "HumanB.hpp"
-
-HumanB::HumanB(std::string name, Weapon &weapon): name(name), weapon(&weapon)
-{
-}
 
 HumanB::HumanB(std::string name): name(name), weapon(NULL)
 {
