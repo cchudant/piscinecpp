@@ -98,10 +98,12 @@ Fixed Fixed::operator-(const Fixed &b) const
 
 Fixed Fixed::operator*(const Fixed &b) const
 {
+    return Fixed(toFloat() * b.toFloat());
 }
 
 Fixed Fixed::operator/(const Fixed &b) const
 {
+    return Fixed(toFloat() / b.toFloat());
 }
 
 Fixed &Fixed::operator++()

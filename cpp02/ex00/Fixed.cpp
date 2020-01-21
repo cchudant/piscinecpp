@@ -6,7 +6,7 @@
 /*   By: cchudant <cchudant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/14 08:14:32 by cchudant          #+#    #+#             */
-/*   Updated: 2020/01/14 08:20:55 by cchudant         ###   ########.fr       */
+/*   Updated: 2020/01/21 05:31:01 by cchudant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ Fixed::~Fixed()
 Fixed::Fixed(const Fixed &c): _raw(c._raw)
 {
     std::cout << "Copy constructor called" << std::endl;
+    *this = c;
 }
 
 Fixed &Fixed::operator=(const Fixed &c)

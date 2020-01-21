@@ -1,15 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   Fixed.cpp                                          :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: cchudant <cchudant@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/01/14 15:00:26 by cchudant          #+#    #+#             */
-/*   Updated: 2020/01/14 15:00:26 by cchudant         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include <iostream>
 #include <cmath>
 #include "Fixed.hpp"
@@ -110,10 +98,12 @@ Fixed Fixed::operator-(const Fixed &b) const
 
 Fixed Fixed::operator*(const Fixed &b) const
 {
+    return Fixed(toFloat() * b.toFloat());
 }
 
 Fixed Fixed::operator/(const Fixed &b) const
 {
+    return Fixed(toFloat() / b.toFloat());
 }
 
 Fixed &Fixed::operator++()
