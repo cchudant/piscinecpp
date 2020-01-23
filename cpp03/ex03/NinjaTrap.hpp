@@ -6,7 +6,7 @@
 /*   By: cchudant <cchudant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/09 04:17:12 by cchudant          #+#    #+#             */
-/*   Updated: 2019/12/09 05:05:38 by cchudant         ###   ########.fr       */
+/*   Updated: 2020/01/23 14:34:01 by cchudant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,9 @@ class NinjaTrap: public ClapTrap
     public:
         NinjaTrap(std::string name);
         ~NinjaTrap();
+
+        void rangedAttack(const std::string &target) const;
+        void meleeAttack(const std::string &target) const;
 
         void ninjaShoebox(const FragTrap &target);
         void ninjaShoebox(const ScavTrap &target);

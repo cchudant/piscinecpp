@@ -6,7 +6,7 @@
 /*   By: cchudant <cchudant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/09 04:21:05 by cchudant          #+#    #+#             */
-/*   Updated: 2019/12/09 07:21:31 by cchudant         ###   ########.fr       */
+/*   Updated: 2020/01/23 15:16:32 by cchudant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,30 @@
 #include <iostream>
 
 ScavTrap::ScavTrap(std::string name):
-    ClapTrap(name, this->baseHitPoints(), this->baseEnergyPoints())
+    ClapTrap(name, baseHitPoints(), baseEnergyPoints())
 {
-    std::cout << "FR4G-TP " << _name << " was born." << std::endl;
-}
-
-ScavTrap::ScavTrap(std::string name, int hitPoints, int energyPoints):
-    ClapTrap(name, hitPoints, energyPoints)
-{
-    std::cout << "FR4G-TP " << _name << " was born." << std::endl;
+    std::cout << "SC4V-TP " << getName() << " was born." << std::endl;
 }
 
 ScavTrap::~ScavTrap()
 {
-    std::cout << "FR4G-TP " << _name << " died in a tornado." << std::endl;
+    std::cout << "SC4V-TP " << getName() << " died in a tornado." << std::endl;
+}
+
+void ScavTrap::rangedAttack(const std::string &target) const
+{
+    std::cout << "SC4V-TP " << getName()
+        << " attacks " << target
+        << " at range, causing " << rangedAttackDamage()
+        << " points of damage, wow!" << std::endl;
+}
+
+void ScavTrap::meleeAttack(const std::string &target) const
+{
+    std::cout << "SC4V-TP " << getName()
+        << " attacks " << target
+        << " at melee, causing " << meleeAttackDamage()
+        << " points of damage, wow!" << std::endl;
 }
 
 static const std::string FUNNY_CHALLENGES[] = {
@@ -40,17 +50,17 @@ static const std::string FUNNY_CHALLENGES[] = {
 
 void ScavTrap::challengeNewcomer(const std::string &target)
 {
-    if (_energyPoints < 25)
+    if (getEnergyPoints() < 25)
     {
-        std::cout << "FR4G-TP " << _name
+        std::cout << "SC4V-TP " << getName()
             << " cannot challenge " << target
             << " because it is out of energy!" << std::endl;
         return;
     }
 
-    _energyPoints -= 25;
+    setEnergyPoints(getEnergyPoints() - 25);
     std::string attack = FUNNY_CHALLENGES[rand() % 5];
-    std::cout << "FR4G-TP " << _name
+    std::cout << "SC4V-TP " << getName()
         << " challenges " << target
         << ": \"" << attack
         << "\"" << std::endl;
@@ -58,42 +68,42 @@ void ScavTrap::challengeNewcomer(const std::string &target)
 
 // base attributes
 
-int ScavTrap::baseHitPoints()
+int ScavTrap::baseHitPoints() const
 {
     return 100;
 }
 
-int ScavTrap::maxHitPoints()
+int ScavTrap::maxHitPoints() const
 {
     return 100;
 }
 
-int ScavTrap::baseEnergyPoints()
+int ScavTrap::baseEnergyPoints() const
 {
     return 50;
 }
 
-int ScavTrap::maxEnergyPoints()
+int ScavTrap::maxEnergyPoints() const
 {
     return 50;
 }
 
-int ScavTrap::level()
+int ScavTrap::level() const
 {
     return 1;
 }
 
-int ScavTrap::meleeAttackDamage()
+int ScavTrap::meleeAttackDamage() const
 {
     return 20;
 }
 
-int ScavTrap::rangedAttackDamage()
+int ScavTrap::rangedAttackDamage() const
 {
     return 15;
 }
 
-int ScavTrap::armorAttackReduction()
+int ScavTrap::armorAttackReduction() const
 {
     return 3;
 }

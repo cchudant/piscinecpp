@@ -6,7 +6,7 @@
 /*   By: cchudant <cchudant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/09 04:21:26 by cchudant          #+#    #+#             */
-/*   Updated: 2019/12/09 07:38:05 by cchudant         ###   ########.fr       */
+/*   Updated: 2020/01/23 15:20:33 by cchudant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #include "ScavTrap.hpp"
 #include "NinjaTrap.hpp"
 #include "SuperTrap.hpp"
+#include <iostream>
 
 int main()
 {
@@ -66,7 +67,11 @@ int main()
     ninja.ninjaShoebox(scav);
     ninja.ninjaShoebox(ninja);
 
+    std::cout << ":: SuperTrap ::" << std::endl;
+
     SuperTrap super("super");
+
+    std::cout << ":: " << super.getHitPoints() << " " << super.getEnergyPoints() << " ::" << std::endl;
 
     super.rangedAttack("your whole family");
     super.meleeAttack("your whole family");

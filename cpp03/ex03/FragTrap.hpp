@@ -6,7 +6,7 @@
 /*   By: cchudant <cchudant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/09 03:11:10 by cchudant          #+#    #+#             */
-/*   Updated: 2019/12/09 04:47:07 by cchudant         ###   ########.fr       */
+/*   Updated: 2020/01/23 14:27:16 by cchudant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,9 @@ class FragTrap: public ClapTrap
     public:
         FragTrap(std::string name);
         ~FragTrap();
+
+        void rangedAttack(const std::string &target) const;
+        void meleeAttack(const std::string &target) const;
 
         void vaulthunter_dot_exe(const std::string &target);
 };

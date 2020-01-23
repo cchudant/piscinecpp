@@ -6,7 +6,7 @@
 /*   By: cchudant <cchudant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/09 03:11:07 by cchudant          #+#    #+#             */
-/*   Updated: 2019/12/09 05:22:31 by cchudant         ###   ########.fr       */
+/*   Updated: 2020/01/23 14:27:41 by cchudant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,28 @@
 FragTrap::FragTrap(std::string name):
     ClapTrap(name, 100, 100, 100, 100, 1, 30, 20, 5)
 {
-    std::cout << "FR4G-TP " << _name << " was created." << std::endl;
+    std::cout << "FR4G-TP " << getName() << " was created." << std::endl;
 }
 
 FragTrap::~FragTrap()
 {
-    (void)_maxEnergyPoints;
-    (void)_level;
-    std::cout << "FR4G-TP " << _name << " was destroyed." << std::endl;
+    std::cout << "FR4G-TP " << getName() << " was destroyed." << std::endl;
+}
+
+void FragTrap::rangedAttack(const std::string &target) const
+{
+    std::cout << "FR4G-TP " << getName()
+        << " attacks " << target
+        << " at range, causing " << getRangedAttackDamage()
+        << " points of damage!" << std::endl;
+}
+
+void FragTrap::meleeAttack(const std::string &target) const
+{
+    std::cout << "FR4G-TP " << getName()
+        << " attacks " << target
+        << " at melee, causing " << getMeleeAttackDamage()
+        << " points of damage!" << std::endl;
 }
 
 static const std::string FUNNY_ATTACKS[] = {
@@ -36,17 +50,17 @@ static const std::string FUNNY_ATTACKS[] = {
 
 void FragTrap::vaulthunter_dot_exe(const std::string &target)
 {
-    if (_energyPoints < 25)
+    if (getEnergyPoints() < 25)
     {
-        std::cout << "FR4G-TP " << _name
+        std::cout << "FR4G-TP " << getName()
             << " cannot attack " << target
             << " because it is out of energy!" << std::endl;
         return;
     }
 
-    _energyPoints -= 25;
+    setEnergyPoints(getEnergyPoints() - 25);
     std::string attack = FUNNY_ATTACKS[rand() % 5];
-    std::cout << "FR4G-TP " << _name
+    std::cout << "FR4G-TP " << getName()
         << " attacks " << target
         << ": \"" << attack
         << "\"" << std::endl;

@@ -6,7 +6,7 @@
 /*   By: cchudant <cchudant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/09 04:17:12 by cchudant          #+#    #+#             */
-/*   Updated: 2019/12/09 04:25:53 by cchudant         ###   ########.fr       */
+/*   Updated: 2020/01/23 14:25:19 by cchudant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@ class ScavTrap
         ScavTrap(std::string name);
         ~ScavTrap();
 
-        void rangedAttack(const std::string &target);
-        void meleeAttack(const std::string &target);
+        void rangedAttack(const std::string &target) const;
+        void meleeAttack(const std::string &target) const;
         void takeDamage(unsigned int amount);
         void beRepaired(unsigned int amount);
 

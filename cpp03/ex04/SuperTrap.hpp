@@ -6,7 +6,7 @@
 /*   By: cchudant <cchudant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/09 04:17:12 by cchudant          #+#    #+#             */
-/*   Updated: 2019/12/09 07:33:45 by cchudant         ###   ########.fr       */
+/*   Updated: 2020/01/23 15:17:07 by cchudant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,19 +26,17 @@ class SuperTrap: public NinjaTrap, public FragTrap
         SuperTrap(std::string name);
         ~SuperTrap();
 
-        virtual int baseHitPoints();
-        virtual int maxHitPoints();
-        virtual int baseEnergyPoints();
-        virtual int maxEnergyPoints();
-        virtual int level();
-        virtual int meleeAttackDamage();
-        virtual int rangedAttackDamage();
-        virtual int armorAttackReduction();
+        virtual int baseHitPoints() const;
+        virtual int maxHitPoints() const;
+        virtual int baseEnergyPoints() const;
+        virtual int maxEnergyPoints() const;
+        virtual int level() const;
+        virtual int meleeAttackDamage() const;
+        virtual int rangedAttackDamage() const;
+        virtual int armorAttackReduction() const;
 
-        void rangedAttack(const std::string &target);
-        void meleeAttack(const std::string &target);
-        void takeDamage(unsigned int amount);
-        void beRepaired(unsigned int amount);
+        virtual void rangedAttack(const std::string &target) const;
+        virtual void meleeAttack(const std::string &target) const;
 };
 
 #endif

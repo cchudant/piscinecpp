@@ -6,7 +6,7 @@
 /*   By: cchudant <cchudant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/09 04:21:05 by cchudant          #+#    #+#             */
-/*   Updated: 2019/12/09 07:36:00 by cchudant         ###   ########.fr       */
+/*   Updated: 2020/01/23 15:19:36 by cchudant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,81 +14,64 @@
 #include <iostream>
 
 SuperTrap::SuperTrap(std::string name):
-    NinjaTrap(name, this->baseHitPoints(), this->maxEnergyPoints()),
-    FragTrap(name, this->baseHitPoints(), this->maxEnergyPoints())
+    ClapTrap(name, baseHitPoints(), baseEnergyPoints()), NinjaTrap(name), FragTrap(name)
 {
-    std::cout << "FR4G-TP " << NinjaTrap::_name << " is a super trap!!" << std::endl;
-}
-
-SuperTrap::SuperTrap(std::string name, int hitPoints, int energyPoints):
-    NinjaTrap(name, hitPoints, energyPoints), FragTrap(name, hitPoints, energyPoints)
-{
-    std::cout << "FR4G-TP " << NinjaTrap::_name << " is a super trap!!" << std::endl;
+    std::cout << "SUPER-TP " << getName() << " is a super trap!!" << std::endl;
 }
 
 SuperTrap::~SuperTrap()
 {
-    std::cout << "FR4G-TP " << NinjaTrap::_name << " is not a super trap anymore!" << std::endl;
+    std::cout << "SUPER-TP " << getName() << " is not a super trap anymore!" << std::endl;
 }
 
-// base attributes
-
-int SuperTrap::baseHitPoints()
-{
-    return FragTrap::baseHitPoints();
-}
-
-int SuperTrap::maxHitPoints()
-{
-    return FragTrap::maxHitPoints();
-}
-
-int SuperTrap::baseEnergyPoints()
-{
-    return NinjaTrap::baseEnergyPoints();
-}
-
-int SuperTrap::maxEnergyPoints()
-{
-    return NinjaTrap::maxEnergyPoints();
-}
-
-int SuperTrap::level()
-{
-    return 1;
-}
-
-int SuperTrap::meleeAttackDamage()
-{
-    return NinjaTrap::meleeAttackDamage();
-}
-
-int SuperTrap::rangedAttackDamage()
-{
-    return FragTrap::rangedAttackDamage();
-}
-
-int SuperTrap::armorAttackReduction()
-{
-    return FragTrap::armorAttackReduction();
-}
-
-void SuperTrap::rangedAttack(const std::string &target)
+void SuperTrap::rangedAttack(const std::string &target) const
 {
     FragTrap::rangedAttack(target);
 }
 
-void SuperTrap::meleeAttack(const std::string &target)
+void SuperTrap::meleeAttack(const std::string &target) const
 {
     NinjaTrap::meleeAttack(target);
 }
 
-void SuperTrap::takeDamage(unsigned int amount)
+// base attributes
+
+int SuperTrap::baseHitPoints() const
 {
-    FragTrap::takeDamage(amount);
+    return FragTrap::baseHitPoints();
 }
 
-void SuperTrap::beRepaired(unsigned int amount)
+int SuperTrap::maxHitPoints() const
 {
-    FragTrap::beRepaired(amount);
+    return FragTrap::maxHitPoints();
+}
+
+int SuperTrap::baseEnergyPoints() const
+{
+    return NinjaTrap::baseEnergyPoints();
+}
+
+int SuperTrap::maxEnergyPoints() const
+{
+    return NinjaTrap::maxEnergyPoints();
+}
+
+int SuperTrap::level() const
+{
+    return 1;
+}
+
+int SuperTrap::meleeAttackDamage() const
+{
+    return NinjaTrap::meleeAttackDamage();
+}
+
+int SuperTrap::rangedAttackDamage() const
+{
+    return FragTrap::rangedAttackDamage();
+}
+
+int SuperTrap::armorAttackReduction() const
+{
+    return FragTrap::armorAttackReduction();
 }

@@ -6,7 +6,7 @@
 /*   By: cchudant <cchudant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/09 03:11:10 by cchudant          #+#    #+#             */
-/*   Updated: 2019/12/09 03:51:32 by cchudant         ###   ########.fr       */
+/*   Updated: 2020/01/23 14:24:21 by cchudant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@ class FragTrap
         FragTrap(std::string name);
         ~FragTrap();
 
-        void rangedAttack(const std::string &target);
-        void meleeAttack(const std::string &target);
+        void rangedAttack(const std::string &target) const;
+        void meleeAttack(const std::string &target) const;
         void takeDamage(unsigned int amount);
         void beRepaired(unsigned int amount);
 

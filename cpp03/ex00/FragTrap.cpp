@@ -6,7 +6,7 @@
 /*   By: cchudant <cchudant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/09 03:11:07 by cchudant          #+#    #+#             */
-/*   Updated: 2019/12/09 05:07:34 by cchudant         ###   ########.fr       */
+/*   Updated: 2020/01/23 14:24:31 by cchudant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ FragTrap::~FragTrap()
     std::cout << "FR4G-TP " << _name << " was destroyed." << std::endl;
 }
 
-void FragTrap::rangedAttack(const std::string &target)
+void FragTrap::rangedAttack(const std::string &target) const
 {
     std::cout << "FR4G-TP " << _name
         << " attacks " << target
@@ -46,7 +46,7 @@ void FragTrap::rangedAttack(const std::string &target)
         << " points of damage!" << std::endl;
 }
 
-void FragTrap::meleeAttack(const std::string &target)
+void FragTrap::meleeAttack(const std::string &target) const
 {
     std::cout << "FR4G-TP " << _name
         << " attacks " << target
