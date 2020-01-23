@@ -6,7 +6,7 @@
 /*   By: cchudant <cchudant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/09 14:38:40 by cchudant          #+#    #+#             */
-/*   Updated: 2019/12/09 15:17:00 by cchudant         ###   ########.fr       */
+/*   Updated: 2020/01/23 22:47:43 by cchudant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ AssaultTerminator &AssaultTerminator::operator=(const AssaultTerminator &c)
 
 AssaultTerminator *AssaultTerminator::clone() const
 {
-    return new AssaultTerminator();
+    return new AssaultTerminator(*this);
 }
 
 void AssaultTerminator::battleCry() const

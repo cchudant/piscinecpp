@@ -6,7 +6,7 @@
 /*   By: cchudant <cchudant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/09 13:39:48 by cchudant          #+#    #+#             */
-/*   Updated: 2019/12/09 15:16:10 by cchudant         ###   ########.fr       */
+/*   Updated: 2020/01/23 23:01:32 by cchudant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static Squad::node *lst_deep_cpy(Squad::node *node)
 {
     if (!node)
         return NULL;
-    return new Squad::node((Squad::node) { node->el, lst_deep_cpy(node->next) });
+    return new Squad::node((Squad::node) { node->el->clone(), lst_deep_cpy(node->next) });
 }
 
 static void lst_destroy(Squad::node *node)
@@ -67,6 +67,13 @@ ISpaceMarine *Squad::getUnit(int unit) const
 
 int Squad::push(ISpaceMarine *el)
 {
+    if (!el)
+        return _count;
+
+    for (Squad::node *n = _lst; n; n = n->next)
+        if (el == n->el)
+            return _count;
+
     Squad::node **node = &_lst;
     while (*node)
         node = &(*node)->next;

@@ -6,7 +6,7 @@
 /*   By: cchudant <cchudant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/09 15:24:03 by cchudant          #+#    #+#             */
-/*   Updated: 2019/12/09 21:01:55 by cchudant         ###   ########.fr       */
+/*   Updated: 2020/01/23 23:06:03 by cchudant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@ class AMateria
     public:
         AMateria(const std::string &type);
         virtual ~AMateria();
+        AMateria(const AMateria &other);
+        AMateria &operator=(const AMateria &other);
 
         const std::string &getType() const;
         unsigned int getXP() const;

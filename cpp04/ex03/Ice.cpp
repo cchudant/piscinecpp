@@ -6,7 +6,7 @@
 /*   By: cchudant <cchudant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/09 17:45:00 by cchudant          #+#    #+#             */
-/*   Updated: 2019/12/09 21:12:56 by cchudant         ###   ########.fr       */
+/*   Updated: 2020/01/23 23:11:34 by cchudant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ Ice &Ice::operator=(const Ice &c)
 
 Ice *Ice::clone() const
 {
-    return new Ice();
+    return new Ice(*this);
 }
 
 void Ice::use(ICharacter &target)

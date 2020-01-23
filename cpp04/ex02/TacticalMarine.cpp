@@ -6,7 +6,7 @@
 /*   By: cchudant <cchudant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/09 14:38:40 by cchudant          #+#    #+#             */
-/*   Updated: 2019/12/09 15:17:12 by cchudant         ###   ########.fr       */
+/*   Updated: 2020/01/23 22:46:13 by cchudant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ TacticalMarine &TacticalMarine::operator=(const TacticalMarine &c)
 
 TacticalMarine *TacticalMarine::clone() const
 {
-    return new TacticalMarine();
+    return new TacticalMarine(*this);
 }
 
 void TacticalMarine::battleCry() const

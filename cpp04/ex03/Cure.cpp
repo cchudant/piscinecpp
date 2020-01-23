@@ -6,7 +6,7 @@
 /*   By: cchudant <cchudant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/09 17:45:00 by cchudant          #+#    #+#             */
-/*   Updated: 2019/12/09 21:04:57 by cchudant         ###   ########.fr       */
+/*   Updated: 2020/01/23 23:11:28 by cchudant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ Cure &Cure::operator=(const Cure &c)
 
 Cure *Cure::clone() const
 {
-    return new Cure();
+    return new Cure(*this);
 }
 
 void Cure::use(ICharacter &target)

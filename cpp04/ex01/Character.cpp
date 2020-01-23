@@ -6,7 +6,7 @@
 /*   By: cchudant <cchudant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/09 11:26:35 by cchudant          #+#    #+#             */
-/*   Updated: 2019/12/09 13:31:26 by cchudant         ###   ########.fr       */
+/*   Updated: 2020/01/23 22:33:05 by cchudant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,8 +49,16 @@ void Character::equip(AWeapon *weapon)
 
 void Character::attack(Enemy *enemy)
 {
-    if (!_weapon || _ap < _weapon->getAPCost())
+    if (!_weapon)
+    {
+        std::cout << _name << " has no weapon!" << std::endl;
         return;
+    }
+    if (_ap < _weapon->getAPCost())
+    {
+        std::cout << _name << " doesn't have enough AP!" << std::endl;
+        return;
+    }
 
     _ap -= _weapon->getAPCost();
     std::cout << _name << " attacks "
