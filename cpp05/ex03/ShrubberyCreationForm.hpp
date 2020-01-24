@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ShrubberyCreationForm.hpp                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: skybt <skybt@student.42.fr>                +#+  +:+       +#+        */
+/*   By: cchudant <cchudant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/09 23:29:21 by cchudant          #+#    #+#             */
-/*   Updated: 2020/01/04 21:48:23 by skybt            ###   ########.fr       */
+/*   Updated: 2020/01/24 00:01:10 by cchudant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,6 @@
 
 class ShrubberyCreationForm: public Form
 {
-    private:
-        std::string _target;
-
     public:
         ShrubberyCreationForm(std::string target);
 

@@ -6,21 +6,21 @@
 /*   By: cchudant <cchudant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/09 13:39:48 by cchudant          #+#    #+#             */
-/*   Updated: 2020/01/23 23:01:32 by cchudant         ###   ########.fr       */
+/*   Updated: 2020/01/24 02:27:46 by cchudant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Squad.hpp"
 #include <iostream>
 
-static Squad::node *lst_deep_cpy(Squad::node *node)
+Squad::node *Squad::lst_deep_cpy(Squad::node *node)
 {
     if (!node)
         return NULL;
     return new Squad::node((Squad::node) { node->el->clone(), lst_deep_cpy(node->next) });
 }
 
-static void lst_destroy(Squad::node *node)
+void Squad::lst_destroy(Squad::node *node)
 {
     if (!node)
         return;

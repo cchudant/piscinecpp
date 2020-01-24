@@ -6,7 +6,7 @@
 /*   By: cchudant <cchudant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/09 03:11:07 by cchudant          #+#    #+#             */
-/*   Updated: 2020/01/23 14:24:31 by cchudant         ###   ########.fr       */
+/*   Updated: 2020/01/24 02:50:30 by cchudant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,6 @@ FragTrap::FragTrap(std::string name): _name(name), _hitPoints(100),
 
 FragTrap::~FragTrap()
 {
-    (void)_maxEnergyPoints;
-    (void)_level;
     std::cout << "FR4G-TP " << _name << " was destroyed." << std::endl;
 }
 

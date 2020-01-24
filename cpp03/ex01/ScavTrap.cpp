@@ -6,7 +6,7 @@
 /*   By: cchudant <cchudant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/09 04:21:05 by cchudant          #+#    #+#             */
-/*   Updated: 2020/01/23 14:25:31 by cchudant         ###   ########.fr       */
+/*   Updated: 2020/01/24 02:50:41 by cchudant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,6 @@ ScavTrap::ScavTrap(std::string name): _name(name), _hitPoints(100),
 
 ScavTrap::~ScavTrap()
 {
-    (void)_maxEnergyPoints;
-    (void)_level;
     std::cout << "SC4V-TP " << _name << " died in a tornado." << std::endl;
 }
 

@@ -6,7 +6,7 @@
 /*   By: cchudant <cchudant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/09 13:50:08 by cchudant          #+#    #+#             */
-/*   Updated: 2019/12/09 15:19:10 by cchudant         ###   ########.fr       */
+/*   Updated: 2020/01/24 02:27:44 by cchudant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,15 +17,17 @@
 
 class Squad: public ISquad
 {
-    public:
+    private:
         struct node {
             ISpaceMarine *el;
             node *next;
         };
 
-    private:
         node *_lst;
         int _count;
+
+        node *lst_deep_cpy(node *node);
+        void lst_destroy(node *node);
 
     public:
         Squad();

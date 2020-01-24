@@ -6,7 +6,7 @@
 /*   By: cchudant <cchudant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/09 07:50:17 by cchudant          #+#    #+#             */
-/*   Updated: 2020/01/23 16:54:45 by cchudant         ###   ########.fr       */
+/*   Updated: 2020/01/24 01:06:47 by cchudant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,10 @@ class Sorcerer {
     private:
         std::string _name, _title;
 
+        Sorcerer();
+
     public:
-        Sorcerer(std::string name = "Anonymous", std::string title = "No title");
+        Sorcerer(std::string name, std::string title);
         Sorcerer(const Sorcerer &c);
         ~Sorcerer();
         Sorcerer &operator=(const Sorcerer &c);

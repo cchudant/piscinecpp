@@ -6,7 +6,7 @@
 /*   By: cchudant <cchudant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/09 22:36:46 by cchudant          #+#    #+#             */
-/*   Updated: 2019/12/09 23:46:18 by cchudant         ###   ########.fr       */
+/*   Updated: 2020/01/23 23:54:05 by cchudant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,8 @@ class Bureaucrat
         void decrementGrade();
 
         void signForm(Form &form);
+
+        void executeForm(const Form &form);
 };
 
 std::ostream &operator<<(std::ostream &out, const Bureaucrat &c);

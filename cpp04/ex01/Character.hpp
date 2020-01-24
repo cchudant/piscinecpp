@@ -6,7 +6,7 @@
 /*   By: cchudant <cchudant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/09 11:22:10 by cchudant          #+#    #+#             */
-/*   Updated: 2019/12/09 13:22:07 by cchudant         ###   ########.fr       */
+/*   Updated: 2020/01/24 01:14:32 by cchudant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,11 @@ class Character
         std::string _name;
         int _ap;
         AWeapon *_weapon;
+
+        Character();
     
     public:
-        Character(const std::string &name = "Unnamed");
+        Character(const std::string &name);
         ~Character();
         Character(const Character &c);
         Character &operator=(const Character &c);

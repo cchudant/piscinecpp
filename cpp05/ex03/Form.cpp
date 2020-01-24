@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Form.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: skybt <skybt@student.42.fr>                +#+  +:+       +#+        */
+/*   By: cchudant <cchudant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/09 23:33:39 by cchudant          #+#    #+#             */
-/*   Updated: 2020/01/04 22:43:15 by skybt            ###   ########.fr       */
+/*   Updated: 2020/01/24 00:00:33 by cchudant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,17 +35,14 @@ const char *Form::GradeTooLowException::what() const throw()
 
 // Form
 
-Form::Form(std::string name, int grade, int execGrade):
-    _name(name), _grade(grade), _execGrade(execGrade), _signed(false)
+Form::Form(std::string name, std::string target, int grade, int execGrade):
+    _name(name), _target(target), _grade(grade),
+    _execGrade(execGrade), _signed(false)
 {
     if (_grade < 1 || _execGrade < 1)
         throw Form::GradeTooHighException();
     if (_grade > 150 || _execGrade > 150)
         throw Form::GradeTooLowException();
-}
-
-Form::~Form()
-{
 }
 
 void Form::checkExecute(const Bureaucrat &b) const
@@ -59,6 +56,11 @@ void Form::checkExecute(const Bureaucrat &b) const
 const std::string &Form::getName() const
 {
     return _name;
+}
+
+const std::string &Form::getTarget() const
+{
+    return _target;
 }
 
 int Form::getGrade() const

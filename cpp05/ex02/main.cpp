@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: skybt <skybt@student.42.fr>                +#+  +:+       +#+        */
+/*   By: cchudant <cchudant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/09 22:55:12 by cchudant          #+#    #+#             */
-/*   Updated: 2020/01/04 22:01:54 by skybt            ###   ########.fr       */
+/*   Updated: 2020/01/23 23:57:32 by cchudant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,7 @@ int main()
     try
     {
         Bureaucrat b1("Johnny", 5);
-        PresidentialPardonForm f1("Formulaire");
+        PresidentialPardonForm f1("Your dad");
         b1.signForm(f1);
         f1.execute(b1);
         std::cout << "Success: " << b1 << std::endl;
@@ -99,7 +99,7 @@ int main()
     try
     {
         Bureaucrat b1("Johnny", 5);
-        RobotomyRequestForm f1("Formulaire");
+        RobotomyRequestForm f1("Your dad");
         b1.signForm(f1);
         f1.execute(b1);
         std::cout << "Success: " << b1 << std::endl;
@@ -113,9 +113,37 @@ int main()
     try
     {
         Bureaucrat b1("Johnny", 5);
-        ShrubberyCreationForm f1("Formulaire");
+        ShrubberyCreationForm f1("Your dad");
         b1.signForm(f1);
         f1.execute(b1);
+        std::cout << "Success: " << b1 << std::endl;
+    }
+    catch (std::exception &e)
+    {
+        std::cout << "Exception: " << e.what() << std::endl;
+    }
+
+    std::cout << "13." << std::endl;
+    try
+    {
+        Bureaucrat b1("Johnny", 150);
+        ShrubberyCreationForm f1("Your dad");
+        b1.signForm(f1);
+        f1.execute(b1);
+        std::cout << "Success: " << b1 << std::endl;
+    }
+    catch (std::exception &e)
+    {
+        std::cout << "Exception: " << e.what() << std::endl;
+    }
+
+    std::cout << "14." << std::endl;
+    try
+    {
+        Bureaucrat b1("Johnny", 150);
+        ShrubberyCreationForm f1("Your dad");
+        b1.signForm(f1);
+        b1.executeForm(f1);
         std::cout << "Success: " << b1 << std::endl;
     }
     catch (std::exception &e)

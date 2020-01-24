@@ -6,7 +6,7 @@
 /*   By: cchudant <cchudant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/09 22:55:12 by cchudant          #+#    #+#             */
-/*   Updated: 2019/12/09 23:26:16 by cchudant         ###   ########.fr       */
+/*   Updated: 2020/01/23 23:26:51 by cchudant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ int main()
     {
         Bureaucrat b1("Johnny", 1);
         Bureaucrat b2("Johnny", 150);
+        b1.decrementGrade();
+        b2.incrementGrade();
         std::cout << "Success: " << b1 << "; " << b2 << std::endl;
     }
     catch (std::exception &e)

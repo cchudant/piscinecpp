@@ -6,7 +6,7 @@
 /*   By: cchudant <cchudant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/09 09:50:08 by cchudant          #+#    #+#             */
-/*   Updated: 2019/12/09 13:21:53 by cchudant         ###   ########.fr       */
+/*   Updated: 2020/01/24 01:14:03 by cchudant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,11 @@ class AWeapon
         void setName(std::string name);
         void setAPCost(int apcost);
         void setDamage(int damage);
-    
+
+        AWeapon();
+
     public:
-        AWeapon(const std::string &name = "Unnamed", int apcost = 0, int damage = 0);
+        AWeapon(const std::string &name, int apcost, int damage);
         virtual ~AWeapon();
         AWeapon(const AWeapon &c);
         AWeapon &operator=(const AWeapon &c);

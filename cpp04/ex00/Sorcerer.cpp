@@ -6,12 +6,16 @@
 /*   By: cchudant <cchudant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/09 08:17:06 by cchudant          #+#    #+#             */
-/*   Updated: 2020/01/23 16:54:37 by cchudant         ###   ########.fr       */
+/*   Updated: 2020/01/24 01:06:57 by cchudant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Sorcerer.hpp"
 #include <iostream>
+
+Sorcerer::Sorcerer()
+{
+}
 
 Sorcerer::Sorcerer(std::string name, std::string title):
     _name(name), _title(title)

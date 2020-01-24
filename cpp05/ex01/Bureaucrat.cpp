@@ -6,7 +6,7 @@
 /*   By: cchudant <cchudant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/09 22:41:28 by cchudant          #+#    #+#             */
-/*   Updated: 2019/12/09 23:47:59 by cchudant         ###   ########.fr       */
+/*   Updated: 2020/01/23 23:33:46 by cchudant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,14 +50,16 @@ int Bureaucrat::getGrade() const
 
 void Bureaucrat::incrementGrade()
 {
-    if (--_grade < 1)
+    if (_grade - 1 < 1)
         throw Bureaucrat::GradeTooHighException();
+    _grade--;
 }
 
 void Bureaucrat::decrementGrade()
 {
-    if (++_grade > 150)
+    if (_grade + 1 > 150)
         throw Bureaucrat::GradeTooLowException();
+    _grade++;
 }
 
 void Bureaucrat::signForm(Form &form)
@@ -70,7 +72,7 @@ void Bureaucrat::signForm(Form &form)
     catch (std::exception &e)
     {
         std::cout << _name << " cannot sign " << form.getName()
-            << " because " << e.what();
+            << " because " << e.what() << std::endl;
     }
 }
 

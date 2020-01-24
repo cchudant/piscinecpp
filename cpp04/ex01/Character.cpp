@@ -6,12 +6,16 @@
 /*   By: cchudant <cchudant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/09 11:26:35 by cchudant          #+#    #+#             */
-/*   Updated: 2020/01/23 22:33:05 by cchudant         ###   ########.fr       */
+/*   Updated: 2020/01/24 01:14:43 by cchudant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Character.hpp"
 #include <iostream>
+
+Character::Character()
+{
+}
 
 Character::Character(const std::string &name):
     _name(name), _ap(40), _weapon(NULL)

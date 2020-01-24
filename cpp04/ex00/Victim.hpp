@@ -6,7 +6,7 @@
 /*   By: cchudant <cchudant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/09 08:55:50 by cchudant          #+#    #+#             */
-/*   Updated: 2019/12/09 09:34:13 by cchudant         ###   ########.fr       */
+/*   Updated: 2020/01/24 01:11:26 by cchudant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,11 @@ class Victim
     protected:
         std::string _name;
 
+        Victim();
+
     public:
-        Victim(std::string name = "Anonymous");
-        ~Victim();
+        Victim(std::string name);
+        virtual ~Victim();
         Victim(const Victim &c);
         Victim &operator=(const Victim &c);
 

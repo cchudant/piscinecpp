@@ -1,27 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ISquad.hpp                                         :+:      :+:    :+:   */
+/*   Cat.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cchudant <cchudant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/12/09 13:40:42 by cchudant          #+#    #+#             */
-/*   Updated: 2019/12/09 15:06:25 by cchudant         ###   ########.fr       */
+/*   Created: 2019/12/09 10:58:17 by cchudant          #+#    #+#             */
+/*   Updated: 2020/01/24 02:17:30 by cchudant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ISQUAD_HPP
-# define ISQUAD_HPP
+#ifndef CAT_HPP
+# define CAT_HPP
 
-# include "ISpaceMarine.hpp"
+# include "Enemy.hpp"
 
-class ISquad
+class Cat: public Enemy
 {
     public:
-        virtual ~ISquad() {}
-        virtual int getCount() const = 0;
-        virtual ISpaceMarine *getUnit(int unit) const = 0;
-        virtual int push(ISpaceMarine *el) = 0;
+        Cat();
+        virtual ~Cat();
+        Cat(const Cat &c);
+        Cat &operator=(const Cat &c);
 };
 
 #endif

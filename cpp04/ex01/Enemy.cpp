@@ -6,11 +6,15 @@
 /*   By: cchudant <cchudant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/09 10:51:39 by cchudant          #+#    #+#             */
-/*   Updated: 2019/12/09 11:06:53 by cchudant         ###   ########.fr       */
+/*   Updated: 2020/01/24 01:15:17 by cchudant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Enemy.hpp"
+
+Enemy::Enemy()
+{
+}
 
 Enemy::Enemy(int hp, const std::string &type): _hp(hp), _type(type)
 {

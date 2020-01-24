@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Form.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: skybt <skybt@student.42.fr>                +#+  +:+       +#+        */
+/*   By: cchudant <cchudant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/09 23:29:21 by cchudant          #+#    #+#             */
-/*   Updated: 2020/01/04 22:42:52 by skybt            ###   ########.fr       */
+/*   Updated: 2020/01/24 00:00:39 by cchudant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ class Form
 {
     private:
         const std::string _name;
+        const std::string _target;
         const int _grade;
         const int _execGrade;
         bool _signed;
@@ -27,8 +28,7 @@ class Form
         void checkExecute(const Bureaucrat &b) const;
 
     public:
-        Form(std::string name, int grade, int execGrade);
-        virtual ~Form();
+        Form(std::string name, std::string target, int grade, int execGrade);
 
         class GradeTooHighException: public std::exception
         {
@@ -49,6 +49,7 @@ class Form
         };
 
         const std::string &getName() const;
+        const std::string &getTarget() const;
         int getGrade() const;
         int getExecGrade() const;
         bool isSigned() const;

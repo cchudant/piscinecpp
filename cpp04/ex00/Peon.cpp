@@ -6,12 +6,16 @@
 /*   By: cchudant <cchudant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/09 08:52:56 by cchudant          #+#    #+#             */
-/*   Updated: 2019/12/09 09:33:05 by cchudant         ###   ########.fr       */
+/*   Updated: 2020/01/24 01:10:51 by cchudant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Peon.hpp"
 #include <iostream>
+
+Peon::Peon()
+{
+}
 
 Peon::Peon(std::string name): Victim(name)
 {

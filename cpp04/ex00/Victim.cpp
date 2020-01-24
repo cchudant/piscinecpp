@@ -6,12 +6,16 @@
 /*   By: cchudant <cchudant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/09 08:52:56 by cchudant          #+#    #+#             */
-/*   Updated: 2019/12/09 09:33:24 by cchudant         ###   ########.fr       */
+/*   Updated: 2020/01/24 01:08:31 by cchudant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Victim.hpp"
 #include <iostream>
+
+Victim::Victim()
+{
+}
 
 Victim::Victim(std::string name): _name(name)
 {

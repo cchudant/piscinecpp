@@ -6,12 +6,16 @@
 /*   By: cchudant <cchudant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/09 08:52:56 by cchudant          #+#    #+#             */
-/*   Updated: 2020/01/23 17:07:16 by cchudant         ###   ########.fr       */
+/*   Updated: 2020/01/24 01:11:07 by cchudant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Idiot.hpp"
 #include <iostream>
+
+Idiot::Idiot()
+{
+}
 
 Idiot::Idiot(std::string name): Victim(name)
 {

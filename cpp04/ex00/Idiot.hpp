@@ -6,7 +6,7 @@
 /*   By: cchudant <cchudant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/09 09:21:52 by cchudant          #+#    #+#             */
-/*   Updated: 2020/01/23 17:03:01 by cchudant         ###   ########.fr       */
+/*   Updated: 2020/01/24 01:07:22 by cchudant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,12 @@
 
 class Idiot: public Victim
 {
+    private:
+        Idiot();
+
     public:
-        Idiot(std::string name = "Anonymous");
-        ~Idiot();
+        Idiot(std::string name);
+        virtual ~Idiot();
         Idiot(const Idiot &c);
         Idiot &operator=(const Idiot &c);
 

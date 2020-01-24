@@ -6,7 +6,7 @@
 /*   By: cchudant <cchudant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/09 22:55:12 by cchudant          #+#    #+#             */
-/*   Updated: 2019/12/09 23:26:16 by cchudant         ###   ########.fr       */
+/*   Updated: 2020/01/23 23:35:54 by cchudant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ int main()
     {
         Bureaucrat b1("Johnny", 1);
         Bureaucrat b2("Johnny", 150);
+        b1.decrementGrade();
+        b2.incrementGrade();
         std::cout << "Success: " << b1 << "; " << b2 << std::endl;
     }
     catch (std::exception &e)
@@ -82,7 +84,7 @@ int main()
     try
     {
         Bureaucrat b1("Johnny", 150);
-        Form f1("Formulaire", 150);
+        Form f1("Formulaire", 150, 5);
         b1.signForm(f1);
         std::cout << "Success: " << b1 << " " << f1 << std::endl;
     }
@@ -95,7 +97,7 @@ int main()
     try
     {
         Bureaucrat b1("Johnny", 160);
-        Form f1("Formulaire", 150);
+        Form f1("Formulaire", 150, 5);
         b1.signForm(f1);
         std::cout << "Success: " << b1 << " " << f1 << std::endl;
     }
@@ -108,9 +110,11 @@ int main()
     try
     {
         Bureaucrat b1("Johnny", 150);
-        Form f1("Formulaire", 150);
-        f1.beSigned(b1);
-        std::cout << "Success: " << b1 << " " << f1 << std::endl;
+        Form f1("Formulaire", 150, 5);
+        b1.signForm(f1);
+        Form f2("Formulaire", 149, 5);
+        b1.signForm(f2);
+        std::cout << "Success: " << b1 << " " << f1 << " " << f2 << std::endl;
     }
     catch (std::exception &e)
     {
@@ -121,7 +125,7 @@ int main()
     try
     {
         Bureaucrat b1("Johnny", 160);
-        Form f1("Formulaire", 150);
+        Form f1("Formulaire", 150, 5);
         f1.beSigned(b1);
         std::cout << "Success: " << b1 << " " << f1 << std::endl;
     }

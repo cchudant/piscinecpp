@@ -1,38 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   RadScorpion.cpp                                    :+:      :+:    :+:   */
+/*   Cat.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cchudant <cchudant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/09 10:58:19 by cchudant          #+#    #+#             */
-/*   Updated: 2020/01/24 02:17:36 by cchudant         ###   ########.fr       */
+/*   Updated: 2020/01/24 02:16:50 by cchudant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "RadScorpion.hpp"
+#include "Cat.hpp"
 #include <iostream>
 
-RadScorpion::RadScorpion(): Enemy(80, "RadScorpion")
+Cat::Cat(): Enemy(10, "Cat")
 {
-    std::cout << "* click click click *" << std::endl;
+    std::cout << "Meoww!" << std::endl;
 }
 
-RadScorpion::~RadScorpion()
+Cat::~Cat()
 {
-    std::cout << "* SPROTCH *" << std::endl;
+    std::cout << "Meowww~" << std::endl;
 }
 
-RadScorpion::RadScorpion(const RadScorpion &c): Enemy(c.getHP(), c.getType())
+Cat::Cat(const Cat &c): Enemy(c.getHP(), c.getType())
 {
-    std::cout << "* click click click *" << std::endl;
+    std::cout << "Meoww!" << std::endl;
 }
 
-RadScorpion &RadScorpion::operator=(const RadScorpion &c)
+Cat &Cat::operator=(const Cat &c)
 {
-    std::cout << "* SPROTCH *" << std::endl;
+    std::cout << "Meowww~" << std::endl;
     setHP(c.getHP());
     setType(c.getType());
-    std::cout << "* click click click *" << std::endl;
+    std::cout << "Meoww!" << std::endl;
     return *this;
 }

@@ -6,12 +6,16 @@
 /*   By: cchudant <cchudant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/09 08:52:56 by cchudant          #+#    #+#             */
-/*   Updated: 2020/01/23 17:11:27 by cchudant         ###   ########.fr       */
+/*   Updated: 2020/01/24 01:10:44 by cchudant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Tristan.hpp"
 #include <iostream>
+
+Tristan::Tristan()
+{
+}
 
 Tristan::Tristan(std::string name): Victim(name)
 {

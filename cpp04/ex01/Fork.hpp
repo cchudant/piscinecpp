@@ -1,27 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ISquad.hpp                                         :+:      :+:    :+:   */
+/*   Fork.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cchudant <cchudant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/12/09 13:40:42 by cchudant          #+#    #+#             */
-/*   Updated: 2019/12/09 15:06:25 by cchudant         ###   ########.fr       */
+/*   Created: 2019/12/09 10:01:11 by cchudant          #+#    #+#             */
+/*   Updated: 2020/01/24 02:11:08 by cchudant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ISQUAD_HPP
-# define ISQUAD_HPP
+#ifndef FORK_HPP
+# define FORK_HPP
 
-# include "ISpaceMarine.hpp"
+# include "AWeapon.hpp"
 
-class ISquad
+class Fork: public AWeapon
 {
     public:
-        virtual ~ISquad() {}
-        virtual int getCount() const = 0;
-        virtual ISpaceMarine *getUnit(int unit) const = 0;
-        virtual int push(ISpaceMarine *el) = 0;
+        Fork();
+        virtual ~Fork();
+        Fork(const Fork &c);
+        Fork &operator=(const Fork &c);
+
+        virtual Fork *clone();
+
+        virtual void attack() const;
 };
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: cchudant <cchudant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/09 10:45:03 by cchudant          #+#    #+#             */
-/*   Updated: 2019/12/09 13:22:11 by cchudant         ###   ########.fr       */
+/*   Updated: 2020/01/24 01:15:08 by cchudant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,10 @@ class Enemy
     protected:
         void setType(const std::string &type);
 
+        Enemy();
+
     public:
-        Enemy(int hp = 0, const std::string &type = "None");
+        Enemy(int hp, const std::string &type);
         virtual ~Enemy();
         Enemy(const Enemy &c);
         Enemy &operator=(const Enemy &c);
