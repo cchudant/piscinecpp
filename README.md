@@ -1,6 +1,7 @@
 # 42 Piscine CPP (New cursus)
 
 Only the last day gives you EXP.
+
 Bonus exercices won't give you any exp, but they are
 interesting nonetheless.
 
@@ -33,7 +34,7 @@ File streams
 
 Bonus:
 
-- [x] ex08: I ain’t heard of nofancy switches
+- [x] ex08: I ain’t heard of no fancy switches
 - [x] ex09: Over logging
 - [x] ex10: Cat o’ nine tails
 
@@ -78,13 +79,12 @@ Bonus:
 
 Repetition and Exceptions
 
-- [ ] ex00: Mommy, when I grow up, I want to be a bureaucrat!
-- [ ] ex01: Form up, maggots !
-- [ ] ex02: No, you need form 28B, not 28C ...
-- [ ] ex03: At least this beats coffee-making
+- [x] ex00: Mommy, when I grow up, I want to be a bureaucrat!
+- [x] ex01: Form up, maggots !
+- [x] ex02: No, you need form 28B, not 28C ...
+- [x] ex03: At least this beats coffee-making
 
 Bonus:
 
-- [ ] ex04: That’s the way I like it, nice and boring
-- [ ] ex05: Endless red-tape generator
-
+- [x] ex04: That’s the way I like it, nice and boring
+- [x] ex05: Endless red-tape generator

@@ -6,7 +6,7 @@
 /*   By: cchudant <cchudant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/04 20:35:14 by cchudant          #+#    #+#             */
-/*   Updated: 2020/01/23 23:49:50 by cchudant         ###   ########.fr       */
+/*   Updated: 2020/01/24 03:37:22 by cchudant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,10 @@
 
 RobotomyRequestForm::RobotomyRequestForm(std::string target):
     Form("RobotomyRequestForm", target, 72, 45)
+{
+}
+
+RobotomyRequestForm::~RobotomyRequestForm()
 {
 }
 

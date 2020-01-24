@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   CentralBureaucracy.cpp                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: skybt <skybt@student.42.fr>                +#+  +:+       +#+        */
+/*   By: cchudant <cchudant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/05 13:12:34 by cchudant          #+#    #+#             */
-/*   Updated: 2020/01/05 14:43:16 by cchudant         ###   ########.fr       */
+/*   Updated: 2020/01/24 04:23:18 by cchudant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ CentralBureaucracy::CentralBureaucracy():
     }
 }
 
-void CentralBureaucracy::feed(Bureaucrat b)
+void CentralBureaucracy::feed(const Bureaucrat &b)
 {
     int i = 0;
     while (i < 20 && _blocks[i].getSigner() && _blocks[i].getExecutor())
@@ -83,18 +83,19 @@ OfficeBlock &CentralBureaucracy::nextBlock()
     while (i < 20 && (!_blocks[_index].getSigner() ||
             !_blocks[_index].getExecutor()))
     {
-        _index = _index % 20 + 1;
+        _index = (_index + 1) % 20;
         i++;
     }
     if (i == 20)
         throw NoOfficeBlockException();
-    return _blocks[_index];
+    return _blocks[_index++];
 }
 
-const static std::string FORMS[3] = {
+const static std::string FORMS[4] = {
     "presidential pardon",
     "robotomy request",
     "shrubbery creation",
+    "mutant pig termination",
 };
 
 void CentralBureaucracy::doBureaucracy()

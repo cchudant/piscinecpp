@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: skybt <skybt@student.42.fr>                +#+  +:+       +#+        */
+/*   By: cchudant <cchudant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/09 22:41:28 by cchudant          #+#    #+#             */
-/*   Updated: 2020/01/05 00:02:25 by cchudant         ###   ########.fr       */
+/*   Updated: 2020/01/24 04:07:33 by cchudant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,11 +38,6 @@ Bureaucrat::Bureaucrat(std::string name, int grade):
         throw Bureaucrat::GradeTooLowException();
 }
 
-Bureaucrat::Bureaucrat(const Bureaucrat &b):
-    _name(b._name), _grade(b._grade)
-{
-}
-
 const std::string &Bureaucrat::getName() const
 {
     return _name;
@@ -55,27 +50,63 @@ int Bureaucrat::getGrade() const
 
 void Bureaucrat::incrementGrade()
 {
-    if (--_grade < 1)
+    if (_grade - 1 < 1)
         throw Bureaucrat::GradeTooHighException();
+    _grade--;
 }
 
 void Bureaucrat::decrementGrade()
 {
-    if (++_grade > 150)
+    if (_grade + 1 > 150)
         throw Bureaucrat::GradeTooLowException();
+    _grade++;
 }
 
 void Bureaucrat::signForm(Form &form)
 {
     try
     {
+        std::string sign = form.isSigned() ? "Signed" : "Unsigned";
+
+        std::cout << "Bureaucrat " << getName()
+            << " (Grade " << getGrade()
+            << ") signs a " << form.getName()
+            << " (s.grade " << form.getGrade()
+            << ", ex.grade " << form.getExecGrade()
+            << ") targeted on " << form.getTarget()
+            << " (" << sign
+            << ")" << std::endl;
+
         form.beSigned(*this);
-        std::cout << _name << " signs " << form.getName() << std::endl;
     }
     catch (std::exception &e)
     {
         std::cout << _name << " cannot sign " << form.getName()
-            << " because " << e.what();
+            << " because " << e.what() << std::endl;
+    }
+}
+
+void Bureaucrat::executeForm(const Form &form)
+{
+    try
+    {
+        std::string sign = form.isSigned() ? "Signed" : "Unsigned";
+
+        std::cout << "Bureaucrat " << getName()
+            << " (Grade " << getGrade()
+            << ") executes a " << form.getName()
+            << " (s.grade " << form.getGrade()
+            << ", ex.grade " << form.getExecGrade()
+            << ") targeted on " << form.getTarget()
+            << " (" << sign
+            << ")" << std::endl;
+
+        form.execute(*this);
+    }
+    catch (std::exception &e)
+    {
+        std::cout << _name << " cannot execute " << form.getName()
+            << " because " << e.what() << std::endl;
     }
 }
 

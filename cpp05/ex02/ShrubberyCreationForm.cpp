@@ -6,7 +6,7 @@
 /*   By: cchudant <cchudant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/04 20:35:14 by cchudant          #+#    #+#             */
-/*   Updated: 2020/01/23 23:50:09 by cchudant         ###   ########.fr       */
+/*   Updated: 2020/01/24 03:37:33 by cchudant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,10 @@ static std::string TREES =
 
 ShrubberyCreationForm::ShrubberyCreationForm(std::string target):
     Form("ShrubberyCreationForm", target, 145, 137)
+{
+}
+
+ShrubberyCreationForm::~ShrubberyCreationForm()
 {
 }
 

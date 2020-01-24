@@ -6,7 +6,7 @@
 /*   By: cchudant <cchudant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/09 23:33:39 by cchudant          #+#    #+#             */
-/*   Updated: 2020/01/23 23:48:54 by cchudant         ###   ########.fr       */
+/*   Updated: 2020/01/24 03:36:46 by cchudant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,10 @@ Form::Form(std::string name, std::string target, int grade, int execGrade):
         throw Form::GradeTooHighException();
     if (_grade > 150 || _execGrade > 150)
         throw Form::GradeTooLowException();
+}
+
+Form::~Form()
+{
 }
 
 void Form::checkExecute(const Bureaucrat &b) const

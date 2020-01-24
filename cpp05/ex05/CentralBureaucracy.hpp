@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   CentralBureaucracy.hpp                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: skybt <skybt@student.42.fr>                +#+  +:+       +#+        */
+/*   By: cchudant <cchudant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/05 00:33:44 by cchudant          #+#    #+#             */
-/*   Updated: 2020/01/05 14:16:33 by cchudant         ###   ########.fr       */
+/*   Updated: 2020/01/24 04:09:56 by cchudant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ class CentralBureaucracy
                 virtual char const *what() const throw();
         };
 
-        void feed(Bureaucrat b);
+        void feed(const Bureaucrat &b);
         void queueUp(std::string target);
         void doBureaucracy();
 };

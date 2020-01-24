@@ -6,7 +6,7 @@
 /*   By: cchudant <cchudant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/09 07:50:17 by cchudant          #+#    #+#             */
-/*   Updated: 2020/01/24 01:06:47 by cchudant         ###   ########.fr       */
+/*   Updated: 2020/01/24 03:22:19 by cchudant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,8 @@
 # include <iostream>
 # include "Victim.hpp"
 
-class Sorcerer {
+class Sorcerer
+{
     private:
         std::string _name, _title;
 

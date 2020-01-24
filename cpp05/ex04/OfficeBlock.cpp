@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   OfficeBlock.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: skybt <skybt@student.42.fr>                +#+  +:+       +#+        */
+/*   By: cchudant <cchudant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/04 23:04:17 by cchudant          #+#    #+#             */
-/*   Updated: 2020/01/05 00:26:52 by cchudant         ###   ########.fr       */
+/*   Updated: 2020/01/24 04:06:24 by cchudant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,8 @@ const char *OfficeBlock::InternConfusedException::what() const throw()
 
 // OfficeBlock
 
-OfficeBlock::OfficeBlock(Intern intern, Bureaucrat signing, Bureaucrat executing):
+OfficeBlock::OfficeBlock(const Intern &intern, const Bureaucrat &signing,
+        const Bureaucrat &executing):
     _intern(new Intern(intern)), _signing(new Bureaucrat(signing)), _executing(new Bureaucrat(executing))
 {
 }
@@ -59,17 +60,17 @@ OfficeBlock::~OfficeBlock()
     delete _executing;
 }
 
-void OfficeBlock::setIntern(Intern intern)
+void OfficeBlock::setIntern(const Intern &intern)
 {
     _intern = new Intern(intern);
 }
 
-void OfficeBlock::setSigner(Bureaucrat signer)
+void OfficeBlock::setSigner(const Bureaucrat &signer)
 {
     _signing = new Bureaucrat(signer);
 }
 
-void OfficeBlock::setExecutor(Bureaucrat executer)
+void OfficeBlock::setExecutor(const Bureaucrat &executer)
 {
     _executing = new Bureaucrat(executer);
 }
@@ -86,6 +87,6 @@ void OfficeBlock::doBureaucracy(std::string formName, std::string target) const
     _signing->signForm(*form);
     if (!_executing)
         throw OfficeBlock::NoExecutingBureaucratException();
-    form->execute(*_executing);
+    _executing->executeForm(*form);
     delete form;
 }

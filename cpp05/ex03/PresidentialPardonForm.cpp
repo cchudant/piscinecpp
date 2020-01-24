@@ -6,7 +6,7 @@
 /*   By: cchudant <cchudant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/04 20:35:14 by cchudant          #+#    #+#             */
-/*   Updated: 2020/01/24 00:00:47 by cchudant         ###   ########.fr       */
+/*   Updated: 2020/01/24 03:36:58 by cchudant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,10 @@
 
 PresidentialPardonForm::PresidentialPardonForm(std::string target):
     Form("PresidentialPardonForm", target, 25, 5)
+{
+}
+
+PresidentialPardonForm::~PresidentialPardonForm()
 {
 }
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Intern.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: skybt <skybt@student.42.fr>                +#+  +:+       +#+        */
+/*   By: cchudant <cchudant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/04 22:23:29 by cchudant          #+#    #+#             */
-/*   Updated: 2020/01/05 00:08:16 by cchudant         ###   ########.fr       */
+/*   Updated: 2020/01/24 04:03:56 by cchudant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,34 +14,35 @@
 #include "PresidentialPardonForm.hpp"
 #include "RobotomyRequestForm.hpp"
 #include "ShrubberyCreationForm.hpp"
+#include "MutantPigTerminationForm.hpp"
 #include <iostream>
 
-Intern::Intern()
+Form *Intern::makeForm(std::string name, std::string target)
 {
-}
+    Form *form = NULL;
 
-Intern::Intern(const Intern &b)
-{
-    (void)b;
-}
-
-Form* Intern::makeForm(std::string name, std::string target)
-{
     if (name == "presidential pardon")
+        form = new PresidentialPardonForm(target);
+    else if (name == "robotomy request")
+        form = new RobotomyRequestForm(target);
+    else if (name == "shrubbery creation")
+        form = new ShrubberyCreationForm(target);
+    else if (name == "mutant pig termination")
+        form = new MutantPigTerminationForm(target);
+    else
     {
-        std::cout << "Intern creates a presidential pardon form!" << std::endl;
-        return new PresidentialPardonForm(target);
+        std::cout << "Intern is very confused and don't know what to do." << std::endl;
+        return NULL;
     }
-    if (name == "robotomy request")
-    {
-        std::cout << "Intern creates a robotomy request form!" << std::endl;
-        return new RobotomyRequestForm(target);
-    }
-    if (name == "shrubbery creation")
-    {
-        std::cout << "Intern creates a shrubbery creation form!" << std::endl;
-        return new ShrubberyCreationForm(target);
-    }
-    std::cout << "Intern is very confused and don't know what to do." << std::endl;
-    return NULL;
+
+    std::string sign = form->isSigned() ? "Signed" : "Unsigned";
+
+    std::cout << "Intrern creates a " << form->getName()
+        << " (s.grade " << form->getGrade()
+        << ", ex.grade " << form->getExecGrade()
+        << ") targeted on " << form->getTarget()
+        << " (" << sign
+        << ")" << std::endl;
+
+    return form;
 }

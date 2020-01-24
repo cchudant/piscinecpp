@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Intern.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: skybt <skybt@student.42.fr>                +#+  +:+       +#+        */
+/*   By: cchudant <cchudant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/04 22:23:29 by cchudant          #+#    #+#             */
-/*   Updated: 2020/01/04 22:43:54 by cchudant         ###   ########.fr       */
+/*   Updated: 2020/01/24 03:59:29 by cchudant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 #include "ShrubberyCreationForm.hpp"
 #include <iostream>
 
-Form* Intern::makeForm(std::string name, std::string target)
+Form *Intern::makeForm(std::string name, std::string target)
 {
     if (name == "presidential pardon")
     {

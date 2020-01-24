@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: skybt <skybt@student.42.fr>                +#+  +:+       +#+        */
+/*   By: cchudant <cchudant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/09 22:55:12 by cchudant          #+#    #+#             */
-/*   Updated: 2020/01/05 00:31:30 by cchudant         ###   ########.fr       */
+/*   Updated: 2020/01/24 03:50:08 by cchudant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,17 +20,23 @@ int main()
     Bureaucrat hermes = Bureaucrat("Hermes Conrad", 37);
     Bureaucrat bob = Bureaucrat("Bobby Bobson", 123);
     OfficeBlock ob;
-    
+
     ob.setIntern(idiotOne);
     ob.setSigner(bob);
     ob.setExecutor(hermes);
-    
+
     try
     {
         ob.doBureaucracy("mutant pig termination", "Pigley");
+    }
+    catch (OfficeBlock::InternConfusedException &e)
+    {
+        std::cout << "InternConfusedException: " << e.what() << std::endl;
     }
     catch (std::exception &e)
     {
         std::cout << "Exception: " << e.what() << std::endl;
     }
+
+    return 0;
 }

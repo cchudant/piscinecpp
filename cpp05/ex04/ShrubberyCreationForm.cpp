@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ShrubberyCreationForm.cpp                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: skybt <skybt@student.42.fr>                +#+  +:+       +#+        */
+/*   By: cchudant <cchudant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/04 20:35:14 by cchudant          #+#    #+#             */
-/*   Updated: 2020/01/04 22:04:04 by cchudant         ###   ########.fr       */
+/*   Updated: 2020/01/24 04:05:24 by cchudant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,11 @@ static std::string TREES =
     " \\/ ._\\//_/__/  ,\\_//__\\/.  \\_//__/_\n";
 
 ShrubberyCreationForm::ShrubberyCreationForm(std::string target):
-    Form("ShrubberyCreationForm", 145, 137), _target(target)
+    Form("Shrubbery Creation Form", target, 145, 137)
+{
+}
+
+ShrubberyCreationForm::~ShrubberyCreationForm()
 {
 }
 
@@ -35,7 +39,7 @@ void ShrubberyCreationForm::execute(const Bureaucrat &b) const
 {
     checkExecute(b);
     std::fstream out;
-    out.open((_target + "_shrubbery").c_str(), std::fstream::out);
+    out.open((getTarget() + "_shrubbery").c_str(), std::fstream::out);
     out << TREES;
     out.close();
 }
