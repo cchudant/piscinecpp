@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: skybt <skybt@student.42.fr>                +#+  +:+       +#+        */
+/*   By: cchudant <cchudant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/05 20:05:33 by cchudant          #+#    #+#             */
-/*   Updated: 2020/01/05 20:37:31 by cchudant         ###   ########.fr       */
+/*   Updated: 2020/01/24 04:39:30 by cchudant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,13 +47,13 @@ void *serialize()
     bytes[11] = uint8_t(i >> 0 & 0xFF);
     for (size_t i = 0; i < 8; i++)
         bytes[8 + 4 + i] = rand_alnum();
-    return bytes;
+    return reinterpret_cast<void*>(bytes);
 }
 
 Data *deserialize(void *raw)
 {
     Data *data = new Data;
-    uint8_t *bytes = (uint8_t*)(raw);
+    uint8_t *bytes = reinterpret_cast<uint8_t*>(raw);
     std::stringstream ss1;
     for (size_t i = 0; i < 8; i++)
         ss1 << char(bytes[i]);
@@ -70,4 +70,6 @@ int main()
     void *bytes = serialize();
     Data *data = deserialize(bytes);
     std::cout << "s = " << data->s << ", n = " << data->n << ", s2 = " << data->s2 << std::endl;
+    delete bytes;
+    delete data;
 }

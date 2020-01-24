@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: skybt <skybt@student.42.fr>                +#+  +:+       +#+        */
+/*   By: cchudant <cchudant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/05 20:44:46 by cchudant          #+#    #+#             */
-/*   Updated: 2020/01/05 20:58:15 by cchudant         ###   ########.fr       */
+/*   Updated: 2020/01/24 04:48:34 by cchudant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,13 +36,49 @@ void identify_from_pointer(Base *p)
         std::cout << "C" << std::endl;
 }
 
+void identify_from_reference(Base &p)
+{
+    try
+    {
+        (void)dynamic_cast<A&>(p);
+        std::cout << "A" << std::endl;
+        return;
+    }
+    catch(const std::bad_cast &e) {}
+
+    try
+    {
+        (void)dynamic_cast<B&>(p);
+        std::cout << "B" << std::endl;
+        return;
+    }
+    catch(const std::bad_cast &e) {}
+
+    try
+    {
+        (void)dynamic_cast<C&>(p);
+        std::cout << "C" << std::endl;
+        return;
+    }
+    catch(const std::bad_cast &e) {}
+    
+}
+
 int main()
 {
-    A *a = new A();
-    B *b = new B();
-    C *c = new C();
-    identify_from_pointer(a);
-    identify_from_pointer(b);
-    identify_from_pointer(c);
+    std::cout << "From pointer" << std::endl;
+    for (int i = 0; i < 10; i++)
+    {
+        Base *inst = generate();
+        identify_from_pointer(inst);
+        delete inst;
+    }
+    std::cout << "From reference" << std::endl;
+    for (int i = 0; i < 10; i++)
+    {
+        Base *inst = generate();
+        identify_from_reference(*inst);
+        delete inst;
+    }
     return 0;
 }

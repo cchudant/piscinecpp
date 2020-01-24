@@ -88,3 +88,11 @@ Bonus:
 
 - [x] ex04: That’s the way I like it, nice and boring
 - [x] ex05: Endless red-tape generator
+
+## CPP06
+
+C++ Casts
+
+- [x] ex00: Scalar conversion
+- [x] ex01: Serialization
+- [x] ex02: Identify real type

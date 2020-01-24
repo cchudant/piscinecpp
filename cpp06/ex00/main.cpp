@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: skybt <skybt@student.42.fr>                +#+  +:+       +#+        */
+/*   By: cchudant <cchudant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/05 18:27:54 by cchudant          #+#    #+#             */
-/*   Updated: 2020/01/05 20:01:07 by cchudant         ###   ########.fr       */
+/*   Updated: 2020/01/24 04:35:23 by cchudant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ void handleFloat(std::string in)
         std::cout << "Cannot understand input!" << std::endl;
         return;
     }
-    if (int(f) != f)
+    if (int(f) != f || double(f) > double(INT_MAX) || double(f) < double(INT_MIN))
     {
         std::cout << "char: impossible" << std::endl;
         std::cout << "int: impossible" << std::endl;
@@ -101,7 +101,7 @@ void handleDouble(std::string in)
         std::cout << "Cannot understand input!" << std::endl;
         return;
     }
-    if (int(f) != f)
+    if (int(f) != f || f > double(INT_MAX) || f < double(INT_MIN))
     {
         std::cout << "char: impossible" << std::endl;
         std::cout << "int: impossible" << std::endl;
@@ -123,8 +123,9 @@ void handleInt(std::string in)
 {
     char *ptr;
     const char *cin = in.c_str();
-    int i = int(strtol(cin, &ptr, 10));
-    if (&cin[in.length()] != ptr)
+    long val = strtol(cin, &ptr, 10);
+    int i = int(val);
+    if (&cin[in.length()] != ptr || long(val) != i)
     {
         std::cout << "Cannot understand input!" << std::endl;
         return;
