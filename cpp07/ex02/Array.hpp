@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Array.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: skybt <skybt@student.42.fr>                +#+  +:+       +#+        */
+/*   By: cchudant <cchudant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/05 22:14:32 by cchudant          #+#    #+#             */
-/*   Updated: 2020/01/05 23:06:24 by cchudant         ###   ########.fr       */
+/*   Updated: 2020/01/24 05:22:13 by cchudant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,27 +61,35 @@ Array<T>::Array(unsigned int n):
 
 template <typename T>
 Array<T>::Array(const Array &c):
-    _array(new T[c._len]), _len(c._len)
+    _array(NULL), _len(c._len)
 {
     if (c._len)
+    {
+        _array = new T[c._len];
         for (unsigned int i = 0; i < c._len; i++)
             _array[i] = c._array[i];
+    }
 }
 
 template <typename T>
 const Array<T> &Array<T>::operator=(const Array<T> &c)
 {
-    _array = new T[c._len];
+    delete[] _array;
+    _array = NULL;
     if (c._len)
+    {
+        _array = new T[c._len];
         for (unsigned int i = 0; i < c._len; i++)
             _array[i] = c._array[i];
+    }
     _len = c._len;
+    return *this;
 }
 
 template <typename T>
 T &Array<T>::operator[](unsigned int i)
 {
-    if (i >= _len)
+    if (!_array || i >= _len)
         throw OutOfBoundException();
     return _array[i];
 }
@@ -89,7 +97,7 @@ T &Array<T>::operator[](unsigned int i)
 template <typename T>
 T const &Array<T>::operator[](unsigned int i) const
 {
-    if (i >= _len)
+    if (!_array || i >= _len)
         throw OutOfBoundException();
     return _array[i];
 }
@@ -98,6 +106,12 @@ template <typename T>
 unsigned int Array<T>::size() const
 {
     return _len;
+}
+
+template <typename T>
+char const *Array<T>::OutOfBoundException::what() const throw()
+{
+    return "Index supplied was out of bound!";
 }
 
 #endif

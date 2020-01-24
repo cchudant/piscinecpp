@@ -8,7 +8,7 @@ NAME=array
 all: $(NAME)
 
 $(NAME): $(OBJECTS)
-	$(CXX) $(CXXFLAGS)  $(OBJECTS) -o $(NAME)
+	$(CXX) $(CXXFLAGS) $(OBJECTS) -o $(NAME)
 
 clean:
 	rm -f $(OBJECTS)

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   whatever.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: skybt <skybt@student.42.fr>                +#+  +:+       +#+        */
+/*   By: cchudant <cchudant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/05 21:17:12 by cchudant          #+#    #+#             */
-/*   Updated: 2020/01/05 21:46:48 by cchudant         ###   ########.fr       */
+/*   Updated: 2020/01/24 04:53:19 by cchudant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,13 @@ void swap(T &a, T &b)
 }
 
 template <typename T>
-T max(T a, T b)
+T &max(T &a, T &b)
 {
     return a > b ? a : b;
 }
 
 template <typename T>
-T min(T a, T b)
+T &min(T &a, T &b)
 {
     return a < b ? a : b;
 }

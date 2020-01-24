@@ -96,3 +96,24 @@ C++ Casts
 - [x] ex00: Scalar conversion
 - [x] ex01: Serialization
 - [x] ex02: Identify real type
+
+## CPP07
+
+C++ Casts
+
+- [x] ex00: A few functions
+- [x] ex01: Iter
+- [x] ex02: Array
+
+## CPP08
+
+Templated containers, iterators, algorithms
+
+- [ ] ex00: Easy find
+- [ ] ex01: Span
+- [ ] ex02: Mutated abomination
+
+Bonus:
+
+- [ ] ex03: Open your mind, butplease don’t fuck it
+- [ ] ex04: In Poland, expression evaluates you
