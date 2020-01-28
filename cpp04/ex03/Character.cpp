@@ -6,11 +6,15 @@
 /*   By: cchudant <cchudant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/09 18:11:28 by cchudant          #+#    #+#             */
-/*   Updated: 2019/12/09 21:12:30 by cchudant         ###   ########.fr       */
+/*   Updated: 2020/01/28 11:42:13 by cchudant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Character.hpp"
+
+Character::Character()
+{
+}
 
 Character::Character(const std::string name):
     _name(name)

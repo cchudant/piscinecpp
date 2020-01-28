@@ -6,7 +6,7 @@
 /*   By: cchudant <cchudant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/09 09:21:52 by cchudant          #+#    #+#             */
-/*   Updated: 2020/01/24 01:09:35 by cchudant         ###   ########.fr       */
+/*   Updated: 2020/01/28 11:40:46 by cchudant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ class Peon: public Victim
         Peon();
 
     public:
-        Peon(std::string name = "Anonymous");
+        Peon(std::string name);
         virtual ~Peon();
         Peon(const Peon &c);
         Peon &operator=(const Peon &c);

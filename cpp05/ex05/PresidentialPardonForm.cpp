@@ -6,19 +6,24 @@
 /*   By: cchudant <cchudant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/04 20:35:14 by cchudant          #+#    #+#             */
-/*   Updated: 2020/01/24 04:05:13 by cchudant         ###   ########.fr       */
+/*   Updated: 2020/01/28 14:02:40 by cchudant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PresidentialPardonForm.hpp"
 #include <iostream>
 
-PresidentialPardonForm::PresidentialPardonForm(std::string target):
-    Form("Presidential Pardon Form", target, 25, 5)
+PresidentialPardonForm::~PresidentialPardonForm()
 {
 }
 
-PresidentialPardonForm::~PresidentialPardonForm()
+PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm &c):
+    Form(c)
+{
+}
+
+PresidentialPardonForm::PresidentialPardonForm(std::string target):
+    Form("Presidential Pardon Form", target, 25, 5)
 {
 }
 

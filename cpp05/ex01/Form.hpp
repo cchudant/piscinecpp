@@ -6,7 +6,7 @@
 /*   By: cchudant <cchudant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/09 23:29:21 by cchudant          #+#    #+#             */
-/*   Updated: 2020/01/23 23:30:55 by cchudant         ###   ########.fr       */
+/*   Updated: 2020/01/28 13:51:34 by cchudant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,13 @@ class Form
         const int _execGrade;
         bool _signed;
 
+        Form();
+        Form &operator=(const Form &c);
+
     public:
         Form(std::string name, int grade, int execGrade);
+        ~Form();
+        Form(const Form &c);
 
         class GradeTooHighException: public std::exception
         {

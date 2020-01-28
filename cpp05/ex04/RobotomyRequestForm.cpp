@@ -6,7 +6,7 @@
 /*   By: cchudant <cchudant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/04 20:35:14 by cchudant          #+#    #+#             */
-/*   Updated: 2020/01/24 04:05:19 by cchudant         ###   ########.fr       */
+/*   Updated: 2020/01/28 14:00:39 by cchudant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,17 @@
 #include <iostream>
 #include <cstdlib>
 
-RobotomyRequestForm::RobotomyRequestForm(std::string target):
-    Form("Robotomy Request Form", target, 72, 45)
+RobotomyRequestForm::~RobotomyRequestForm()
 {
 }
 
-RobotomyRequestForm::~RobotomyRequestForm()
+RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &c):
+    Form(c)
+{
+}
+
+RobotomyRequestForm::RobotomyRequestForm(std::string target):
+    Form("Robotomy Request Form", target, 72, 45)
 {
 }
 

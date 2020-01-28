@@ -6,7 +6,7 @@
 /*   By: cchudant <cchudant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/09 15:24:03 by cchudant          #+#    #+#             */
-/*   Updated: 2020/01/23 23:06:03 by cchudant         ###   ########.fr       */
+/*   Updated: 2020/01/28 11:41:38 by cchudant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@ class AMateria
     private:
         std::string _type;
         unsigned int _xp;
+
+        AMateria();
 
     public:
         AMateria(const std::string &type);

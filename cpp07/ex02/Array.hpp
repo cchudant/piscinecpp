@@ -6,7 +6,7 @@
 /*   By: cchudant <cchudant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/05 22:14:32 by cchudant          #+#    #+#             */
-/*   Updated: 2020/01/24 05:22:13 by cchudant         ###   ########.fr       */
+/*   Updated: 2020/01/28 14:08:14 by cchudant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ class Array
         ~Array();
         Array(unsigned int n);
         Array(const Array<T> &c);
-        const Array<T> &operator=(const Array<T> &c);
+        Array<T> &operator=(const Array<T> &c);
 
         class OutOfBoundException: public std::exception
         {
@@ -72,7 +72,7 @@ Array<T>::Array(const Array &c):
 }
 
 template <typename T>
-const Array<T> &Array<T>::operator=(const Array<T> &c)
+Array<T> &Array<T>::operator=(const Array<T> &c)
 {
     delete[] _array;
     _array = NULL;

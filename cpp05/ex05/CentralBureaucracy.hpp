@@ -6,7 +6,7 @@
 /*   By: cchudant <cchudant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/05 00:33:44 by cchudant          #+#    #+#             */
-/*   Updated: 2020/01/24 04:09:56 by cchudant         ###   ########.fr       */
+/*   Updated: 2020/01/28 12:56:19 by cchudant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,9 @@ class CentralBureaucracy
 
     public:
         CentralBureaucracy();
+        ~CentralBureaucracy();
+        CentralBureaucracy(const CentralBureaucracy &c);
+        CentralBureaucracy &operator=(const CentralBureaucracy &c);
 
         class ResumeRejectedException: public std::exception
         {

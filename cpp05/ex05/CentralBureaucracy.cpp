@@ -6,7 +6,7 @@
 /*   By: cchudant <cchudant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/05 13:12:34 by cchudant          #+#    #+#             */
-/*   Updated: 2020/01/24 04:23:18 by cchudant         ###   ########.fr       */
+/*   Updated: 2020/01/28 13:01:16 by cchudant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,29 @@ CentralBureaucracy::CentralBureaucracy():
         std::string empty;
         _targets[i] = empty;
     }
+}
+
+CentralBureaucracy::~CentralBureaucracy()
+{
+}
+
+CentralBureaucracy::CentralBureaucracy(const CentralBureaucracy &c):
+    _index(c._index)
+{
+    for (int i = 0; i < 20; i++)
+        _blocks[i] = c._blocks[i];
+    for (int i = 0; i < 100; i++)
+        _targets[i] = c._targets[i];
+}
+
+CentralBureaucracy &CentralBureaucracy::operator=(const CentralBureaucracy &c)
+{
+    for (int i = 0; i < 20; i++)
+        _blocks[i] = c._blocks[i];
+    for (int i = 0; i < 100; i++)
+        _targets[i] = c._targets[i];
+    _index = c._index;
+    return *this;
 }
 
 void CentralBureaucracy::feed(const Bureaucrat &b)

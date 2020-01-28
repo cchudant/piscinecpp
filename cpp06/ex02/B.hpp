@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   B.hpp                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: skybt <skybt@student.42.fr>                +#+  +:+       +#+        */
+/*   By: cchudant <cchudant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/05 20:40:37 by cchudant          #+#    #+#             */
-/*   Updated: 2020/01/05 20:58:49 by cchudant         ###   ########.fr       */
+/*   Updated: 2020/01/28 13:48:20 by cchudant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,10 @@
 class B: public Base
 {
     public:
+        B();
         virtual ~B();
+        B(const B &c);
+        B &operator=(const B &c);
 };
 
 #endif

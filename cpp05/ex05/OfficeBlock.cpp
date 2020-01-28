@@ -6,7 +6,7 @@
 /*   By: cchudant <cchudant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/04 23:04:17 by cchudant          #+#    #+#             */
-/*   Updated: 2020/01/24 04:11:59 by cchudant         ###   ########.fr       */
+/*   Updated: 2020/01/28 13:03:35 by cchudant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,21 @@ OfficeBlock::~OfficeBlock()
     delete _intern;
     delete _signing;
     delete _executing;
+}
+
+OfficeBlock::OfficeBlock(const OfficeBlock &c):
+    _intern(c._intern ? new Intern(*c._intern) : NULL),
+    _signing(c._signing ? new Bureaucrat(*c._signing) : NULL),
+    _executing(c._executing ? new Bureaucrat(*c._executing) : NULL)
+{
+}
+
+OfficeBlock &OfficeBlock::operator=(const OfficeBlock &c)
+{
+    _intern = c._intern ? new Intern(*c._intern) : NULL;
+    _signing = c._signing ? new Bureaucrat(*c._signing) : NULL;
+    _executing = c._executing ? new Bureaucrat(*c._executing) : NULL;
+    return *this;
 }
 
 void OfficeBlock::setIntern(const Intern &intern)

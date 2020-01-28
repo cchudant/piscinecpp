@@ -6,7 +6,7 @@
 /*   By: cchudant <cchudant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/04 22:23:29 by cchudant          #+#    #+#             */
-/*   Updated: 2020/01/24 04:03:56 by cchudant         ###   ########.fr       */
+/*   Updated: 2020/01/28 12:43:02 by cchudant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,25 @@
 #include "ShrubberyCreationForm.hpp"
 #include "MutantPigTerminationForm.hpp"
 #include <iostream>
+
+Intern::Intern()
+{
+}
+
+Intern::~Intern()
+{
+}
+
+Intern::Intern(const Intern &c)
+{
+    (void)c;
+}
+
+Intern &Intern::operator=(const Intern &c)
+{
+    (void)c;
+    return *this;
+}
 
 Form *Intern::makeForm(std::string name, std::string target)
 {

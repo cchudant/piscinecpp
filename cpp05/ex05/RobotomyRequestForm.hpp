@@ -6,7 +6,7 @@
 /*   By: cchudant <cchudant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/09 23:29:21 by cchudant          #+#    #+#             */
-/*   Updated: 2020/01/24 03:36:29 by cchudant         ###   ########.fr       */
+/*   Updated: 2020/01/28 14:02:56 by cchudant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,14 @@
 
 class RobotomyRequestForm: public Form
 {
+    private:
+        RobotomyRequestForm();
+        RobotomyRequestForm &operator=(const RobotomyRequestForm &c);
+
     public:
         RobotomyRequestForm(std::string target);
         virtual ~RobotomyRequestForm();
+        RobotomyRequestForm(const RobotomyRequestForm &c);
 
         virtual void execute(const Bureaucrat &b) const;
 };

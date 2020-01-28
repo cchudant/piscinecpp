@@ -6,7 +6,7 @@
 /*   By: cchudant <cchudant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/04 22:48:40 by cchudant          #+#    #+#             */
-/*   Updated: 2020/01/24 04:11:09 by cchudant         ###   ########.fr       */
+/*   Updated: 2020/01/28 13:00:32 by cchudant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@ class OfficeBlock
         ~OfficeBlock();
         OfficeBlock(const Intern &intern, const Bureaucrat &signing,
             const Bureaucrat &executing);
+        OfficeBlock(const OfficeBlock &c);
+        OfficeBlock &operator=(const OfficeBlock &c);
 
         class NoInternException: public std::exception
         {

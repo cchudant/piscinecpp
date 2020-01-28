@@ -6,11 +6,15 @@
 /*   By: cchudant <cchudant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/09 15:29:25 by cchudant          #+#    #+#             */
-/*   Updated: 2020/01/23 23:07:24 by cchudant         ###   ########.fr       */
+/*   Updated: 2020/01/28 11:41:48 by cchudant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "AMateria.hpp"
+
+AMateria::AMateria()
+{
+}
 
 AMateria::AMateria(const std::string &type):
     _type(type), _xp(0)

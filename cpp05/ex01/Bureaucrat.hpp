@@ -6,7 +6,7 @@
 /*   By: cchudant <cchudant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/09 22:36:46 by cchudant          #+#    #+#             */
-/*   Updated: 2019/12/09 23:46:18 by cchudant         ###   ########.fr       */
+/*   Updated: 2020/01/28 13:50:36 by cchudant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,13 @@ class Bureaucrat
         const std::string _name;
         int _grade;
 
+        Bureaucrat();
+        Bureaucrat &operator=(const Bureaucrat &c);
+
     public:
         Bureaucrat(std::string name, int grade);
+        ~Bureaucrat();
+        Bureaucrat(const Bureaucrat &c);
 
         class GradeTooHighException: public std::exception
         {

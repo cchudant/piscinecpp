@@ -6,7 +6,7 @@
 /*   By: cchudant <cchudant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/04 20:35:14 by cchudant          #+#    #+#             */
-/*   Updated: 2020/01/24 03:37:33 by cchudant         ###   ########.fr       */
+/*   Updated: 2020/01/28 13:55:39 by cchudant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,12 +26,17 @@ static std::string TREES =
     "    |.|        | |         | |\n"
     " \\/ ._\\//_/__/  ,\\_//__\\/.  \\_//__/_\n";
 
-ShrubberyCreationForm::ShrubberyCreationForm(std::string target):
-    Form("ShrubberyCreationForm", target, 145, 137)
+ShrubberyCreationForm::~ShrubberyCreationForm()
 {
 }
 
-ShrubberyCreationForm::~ShrubberyCreationForm()
+ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &c):
+    Form(c)
+{
+}
+
+ShrubberyCreationForm::ShrubberyCreationForm(std::string target):
+    Form("ShrubberyCreationForm", target, 145, 137)
 {
 }
 

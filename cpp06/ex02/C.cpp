@@ -3,15 +3,29 @@
 /*                                                        :::      ::::::::   */
 /*   C.cpp                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: skybt <skybt@student.42.fr>                +#+  +:+       +#+        */
+/*   By: cchudant <cchudant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/05 20:43:33 by cchudant          #+#    #+#             */
-/*   Updated: 2020/01/05 21:00:12 by cchudant         ###   ########.fr       */
+/*   Updated: 2020/01/28 13:49:22 by cchudant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "C.hpp"
 
+C::C()
+{
+}
+
 C::~C()
 {
+}
+
+C::C(const C &c)
+{
+	(void)c;
+}
+
+C &C::operator=(const C &c)
+{
+	(void)c;
 }

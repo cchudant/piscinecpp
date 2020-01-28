@@ -6,7 +6,7 @@
 /*   By: cchudant <cchudant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/09 22:41:28 by cchudant          #+#    #+#             */
-/*   Updated: 2020/01/24 00:00:23 by cchudant         ###   ########.fr       */
+/*   Updated: 2020/01/28 13:54:10 by cchudant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,15 @@ const char *Bureaucrat::GradeTooLowException::what() const throw()
 }
 
 // Bureaucrat
+
+Bureaucrat::~Bureaucrat()
+{
+}
+
+Bureaucrat::Bureaucrat(const Bureaucrat &c):
+    _name(c._name), _grade(c._grade)
+{
+}
 
 Bureaucrat::Bureaucrat(std::string name, int grade):
     _name(name), _grade(grade)

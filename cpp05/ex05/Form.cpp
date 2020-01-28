@@ -6,7 +6,7 @@
 /*   By: cchudant <cchudant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/09 23:33:39 by cchudant          #+#    #+#             */
-/*   Updated: 2020/01/24 03:36:46 by cchudant         ###   ########.fr       */
+/*   Updated: 2020/01/28 14:01:36 by cchudant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,15 @@ const char *Form::GradeTooLowException::what() const throw()
 
 // Form
 
+Form::~Form()
+{
+}
+
+Form::Form(const Form &c):
+    _name(c._name), _grade(c._grade), _execGrade(c._execGrade), _signed(c._signed)
+{
+}
+
 Form::Form(std::string name, std::string target, int grade, int execGrade):
     _name(name), _target(target), _grade(grade),
     _execGrade(execGrade), _signed(false)
@@ -43,10 +52,6 @@ Form::Form(std::string name, std::string target, int grade, int execGrade):
         throw Form::GradeTooHighException();
     if (_grade > 150 || _execGrade > 150)
         throw Form::GradeTooLowException();
-}
-
-Form::~Form()
-{
 }
 
 void Form::checkExecute(const Bureaucrat &b) const

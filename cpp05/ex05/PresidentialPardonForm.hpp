@@ -6,7 +6,7 @@
 /*   By: cchudant <cchudant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/09 23:29:21 by cchudant          #+#    #+#             */
-/*   Updated: 2020/01/24 03:36:36 by cchudant         ###   ########.fr       */
+/*   Updated: 2020/01/28 14:02:44 by cchudant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,14 @@
 
 class PresidentialPardonForm: public Form
 {
+    private:
+        PresidentialPardonForm();
+        PresidentialPardonForm &operator=(const PresidentialPardonForm &c);
+
     public:
         PresidentialPardonForm(std::string target);
         virtual ~PresidentialPardonForm();
+        PresidentialPardonForm(const PresidentialPardonForm &c);
 
         virtual void execute(const Bureaucrat &b) const;
 };
