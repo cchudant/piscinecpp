@@ -6,7 +6,7 @@
 /*   By: cchudant <cchudant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/05 18:27:54 by cchudant          #+#    #+#             */
-/*   Updated: 2020/01/24 04:35:23 by cchudant         ###   ########.fr       */
+/*   Updated: 2020/01/30 14:53:46 by cchudant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,9 @@
 #include <cstdlib>
 #include <cstring>
 #include <iomanip>
+
+const double INT_MAX_AS_DOUBLE = static_cast<double>(INT_MAX);
+const double INT_MIN_AS_DOUBLE = static_cast<double>(INT_MIN);
 
 void handleFloat(std::string in)
 {
@@ -43,35 +46,36 @@ void handleFloat(std::string in)
         std::cout << "double: -nan" << std::endl;
         return;
     }
-    float f = float(strtod(cin, &ptr));
+    float asFloat = static_cast<float>(strtod(cin, &ptr));
+    double asDouble = static_cast<double>(asFloat);
+    int asInt = static_cast<int>(asFloat);
+    char asChar = static_cast<char>(asInt);
     if (&cin[in.length() - 1] != ptr)
     {
         std::cout << "Cannot understand input!" << std::endl;
         return;
     }
-    if (int(f) != f || double(f) > double(INT_MAX) || double(f) < double(INT_MIN))
+    if (asInt != asFloat || asDouble > INT_MAX_AS_DOUBLE || asDouble < INT_MIN_AS_DOUBLE)
     {
         std::cout << "char: impossible" << std::endl;
         std::cout << "int: impossible" << std::endl;
-        std::cout << "float: " << std::fixed << std::setprecision(1) << f << "f" << std::endl;
-        std::cout << "double: " << std::fixed << std::setprecision(1) << double(f) << std::endl;
+        std::cout << "float: " << std::fixed << std::setprecision(1) << asFloat << "f" << std::endl;
+        std::cout << "double: " << std::fixed << std::setprecision(1) << asDouble << std::endl;
         return;
     }
-    int i = int(f);
-    if (isprint(char(i)))
-        std::cout << "char: '" << char(i) << "'" << std::endl;
+    if (isprint(asChar))
+        std::cout << "char: '" << asChar << "'" << std::endl;
     else
         std::cout << "char: Non displayable" << std::endl;
-    std::cout << "int: " << i << std::endl;
-    std::cout << "float: " << std::fixed << std::setprecision(1) << f << "f" << std::endl;
-    std::cout << "double: " << std::fixed << std::setprecision(1) << double(f) << std::endl;    
+    std::cout << "int: " << asInt << std::endl;
+    std::cout << "float: " << std::fixed << std::setprecision(1) << asFloat << "f" << std::endl;
+    std::cout << "double: " << std::fixed << std::setprecision(1) << asDouble << std::endl;    
 }
 
 void handleDouble(std::string in)
 {
     char *ptr;
     const char *cin = in.c_str();
-    float f = strtod(cin, &ptr);
     if (in == "+inf")
     {
         std::cout << "char: impossible" << std::endl;
@@ -96,27 +100,30 @@ void handleDouble(std::string in)
         std::cout << "double: -nan" << std::endl;
         return;
     }
+    double asDouble = strtod(cin, &ptr);
+    float asFloat = static_cast<float>(asDouble);
+    int asInt = static_cast<int>(asDouble);
+    char asChar = static_cast<char>(asInt);
     if (&cin[in.length()] != ptr)
     {
         std::cout << "Cannot understand input!" << std::endl;
         return;
     }
-    if (int(f) != f || f > double(INT_MAX) || f < double(INT_MIN))
+    if (asInt != asDouble || asDouble > INT_MAX_AS_DOUBLE || asDouble < INT_MIN_AS_DOUBLE)
     {
         std::cout << "char: impossible" << std::endl;
         std::cout << "int: impossible" << std::endl;
-        std::cout << "float: " << std::fixed << std::setprecision(1) << float(f) << "f" << std::endl;
-        std::cout << "double: " << std::fixed << std::setprecision(1) << f << std::endl;
+        std::cout << "float: " << std::fixed << std::setprecision(1) << asFloat << "f" << std::endl;
+        std::cout << "double: " << std::fixed << std::setprecision(1) << asDouble << std::endl;
         return;
     }
-    int i = int(f);
-    if (isprint(char(i)))
-        std::cout << "char: '" << char(i) << "'" << std::endl;
+    if (isprint(asChar))
+        std::cout << "char: '" << asChar << "'" << std::endl;
     else
         std::cout << "char: Non displayable" << std::endl;
-    std::cout << "int: " << i << std::endl;
-    std::cout << "float: " << std::fixed << std::setprecision(1) << float(f) << "f" << std::endl;
-    std::cout << "double: " << std::fixed << std::setprecision(1) << f << std::endl;    
+    std::cout << "int: " << asInt << std::endl;
+    std::cout << "float: " << std::fixed << std::setprecision(1) << asFloat << "f" << std::endl;
+    std::cout << "double: " << std::fixed << std::setprecision(1) << asDouble << std::endl;    
 }
 
 void handleInt(std::string in)
@@ -124,28 +131,34 @@ void handleInt(std::string in)
     char *ptr;
     const char *cin = in.c_str();
     long val = strtol(cin, &ptr, 10);
-    int i = int(val);
-    if (&cin[in.length()] != ptr || long(val) != i)
+    int asInt = static_cast<int>(val);
+    double asDouble = static_cast<double>(asInt);
+    float asFloat = static_cast<float>(asInt);
+    char asChar = static_cast<char>(asInt);
+    if (&cin[in.length()] != ptr || val != static_cast<long>(asInt))
     {
         std::cout << "Cannot understand input!" << std::endl;
         return;
     }
-    if (isprint(char(i)))
-        std::cout << "char: '" << char(i) << "'" << std::endl;
+    if (isprint(asChar))
+        std::cout << "char: '" << asChar << "'" << std::endl;
     else
         std::cout << "char: Non displayable" << std::endl;
-    std::cout << "int: " << i << std::endl;
-    std::cout << "float: " << std::fixed << std::setprecision(1) << float(i) << "f" << std::endl;
-    std::cout << "double: " << std::fixed << std::setprecision(1) << double(i) << std::endl; 
+    std::cout << "int: " << asInt << std::endl;
+    std::cout << "float: " << std::fixed << std::setprecision(1) << asFloat << "f" << std::endl;
+    std::cout << "double: " << std::fixed << std::setprecision(1) << asDouble << std::endl; 
 }
 
 void handleChar(std::string in)
 {
-    char c = in[1];
-    std::cout << "char: '" << c << "'" << std::endl;
-    std::cout << "int: " << int(c) << std::endl;
-    std::cout << "float: " << std::fixed << std::setprecision(1) << float(c) << "f" << std::endl;
-    std::cout << "double: " << std::fixed << std::setprecision(1) << double(c) << std::endl; 
+    char asChar = in[1];
+    int asInt = static_cast<int>(asChar);
+    double asDouble = static_cast<double>(asChar);
+    float asFloat = static_cast<float>(asChar);
+    std::cout << "char: '" << asChar << "'" << std::endl;
+    std::cout << "int: " << asInt << std::endl;
+    std::cout << "float: " << std::fixed << std::setprecision(1) << asFloat << "f" << std::endl;
+    std::cout << "double: " << std::fixed << std::setprecision(1) << asDouble << std::endl; 
 }
 
 bool hasADot(std::string in)
