@@ -6,7 +6,7 @@
 /*   By: cchudant <cchudant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/09 23:33:39 by cchudant          #+#    #+#             */
-/*   Updated: 2020/01/28 11:54:05 by cchudant         ###   ########.fr       */
+/*   Updated: 2020/02/13 06:09:40 by cchudant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,11 +28,6 @@ const char *Form::GradeTooLowException::what() const throw()
 
 // Form
 
-Form::Form():
-    _grade(-1), _execGrade(-1)
-{
-}
-
 Form::~Form()
 {
 }
@@ -40,15 +35,6 @@ Form::~Form()
 Form::Form(const Form &c):
     _name(c._name), _grade(c._grade), _execGrade(c._execGrade), _signed(c._signed)
 {
-}
-
-Form &Form::operator=(const Form &c)
-{
-    const_cast<std::string &> (_name) = c._name;
-    const_cast<int &> (_grade) = c._grade;
-    const_cast<int &> (_execGrade) = c._execGrade;
-    _signed = c._signed;
-    return *this;
 }
 
 Form::Form(std::string name, int grade, int execGrade):

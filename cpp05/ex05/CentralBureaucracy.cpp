@@ -6,7 +6,7 @@
 /*   By: cchudant <cchudant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/05 13:12:34 by cchudant          #+#    #+#             */
-/*   Updated: 2020/01/28 13:01:16 by cchudant         ###   ########.fr       */
+/*   Updated: 2020/02/13 06:29:04 by cchudant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -129,7 +129,7 @@ void CentralBureaucracy::doBureaucracy()
         {
             OfficeBlock &block = nextBlock();
             std::string empty;
-            block.doBureaucracy(FORMS[rand() % 3], _targets[ti]);
+            block.doBureaucracy(FORMS[rand() % 4], _targets[ti]);
             _targets[ti] = empty;
         }
     }

@@ -99,7 +99,7 @@ C++ Casts
 
 ## CPP07
 
-C++ Casts
+C++ Templates
 
 - [x] ex00: A few functions
 - [x] ex01: Iter

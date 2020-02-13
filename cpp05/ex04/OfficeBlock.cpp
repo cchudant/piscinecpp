@@ -6,7 +6,7 @@
 /*   By: cchudant <cchudant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/04 23:04:17 by cchudant          #+#    #+#             */
-/*   Updated: 2020/01/28 14:00:09 by cchudant         ###   ########.fr       */
+/*   Updated: 2020/02/13 06:33:18 by cchudant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,10 +98,16 @@ void OfficeBlock::doBureaucracy(std::string formName, std::string target) const
     if (!form)
         throw OfficeBlock::InternConfusedException();
     if (!_signing)
+    {
+        delete form;
         throw OfficeBlock::NoSigningBureaucratException();
+    }
     _signing->signForm(*form);
     if (!_executing)
+    {
+        delete form;
         throw OfficeBlock::NoExecutingBureaucratException();
+    }
     _executing->executeForm(*form);
     delete form;
 }

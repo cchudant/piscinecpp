@@ -6,7 +6,7 @@
 /*   By: cchudant <cchudant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/04 22:23:29 by cchudant          #+#    #+#             */
-/*   Updated: 2020/01/28 12:43:02 by cchudant         ###   ########.fr       */
+/*   Updated: 2020/02/13 06:28:27 by cchudant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,32 +36,44 @@ Intern &Intern::operator=(const Intern &c)
     return *this;
 }
 
+Form *Intern::createPresidentialPardonForm(std::string target)
+{
+    return new PresidentialPardonForm(target);
+}
+
+Form *Intern::createRobotomyRequestForm(std::string target)
+{
+    return new RobotomyRequestForm(target);
+}
+
+Form *Intern::createShrubberyCreationForm(std::string target)
+{
+    return new ShrubberyCreationForm(target);
+}
+
+Form *Intern::createMutantPigTerminationForm(std::string target)
+{
+    return new MutantPigTerminationForm(target);
+}
+
+const Intern::vtab_entry Intern::vtab[4] =
+{
+    { .name = "presidential pardon", .fn = &Intern::createPresidentialPardonForm },
+    { .name = "robotomy request", .fn = &Intern::createRobotomyRequestForm },
+    { .name = "shrubbery creation", .fn = &Intern::createShrubberyCreationForm },
+    { .name = "mutant pig termination", .fn = &Intern::createMutantPigTerminationForm },
+};
+
 Form *Intern::makeForm(std::string name, std::string target)
 {
-    Form *form = NULL;
-
-    if (name == "presidential pardon")
-        form = new PresidentialPardonForm(target);
-    else if (name == "robotomy request")
-        form = new RobotomyRequestForm(target);
-    else if (name == "shrubbery creation")
-        form = new ShrubberyCreationForm(target);
-    else if (name == "mutant pig termination")
-        form = new MutantPigTerminationForm(target);
-    else
+    for (size_t i = 0; i < 4; i++)
     {
-        std::cout << "Intern is very confused and don't know what to do." << std::endl;
-        return NULL;
+        if (vtab[i].name == name)
+        {
+            std::cout << "Intern creates a " << name << " form!" << std::endl;
+            return vtab[i].fn(target);
+        }
     }
-
-    std::string sign = form->isSigned() ? "Signed" : "Unsigned";
-
-    std::cout << "Intrern creates a " << form->getName()
-        << " (s.grade " << form->getGrade()
-        << ", ex.grade " << form->getExecGrade()
-        << ") targeted on " << form->getTarget()
-        << " (" << sign
-        << ")" << std::endl;
-
-    return form;
+    std::cout << "Intern is very confused and don't know what to do." << std::endl;
+    return NULL;
 }

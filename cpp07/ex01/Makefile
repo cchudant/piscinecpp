@@ -1,6 +1,6 @@
 CXX=clang++
 CXXFLAGS=-Wall -Wextra -Werror
-OBJECTS=iter.o
+OBJECTS=iter.o XCounter.o
 NAME=iter
 
 .PHONY: all clean fclean re
