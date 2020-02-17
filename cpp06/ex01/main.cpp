@@ -6,7 +6,7 @@
 /*   By: cchudant <cchudant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/05 20:05:33 by cchudant          #+#    #+#             */
-/*   Updated: 2020/01/24 04:39:30 by cchudant         ###   ########.fr       */
+/*   Updated: 2020/02/17 14:35:24 by cchudant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,6 @@ int main()
     void *bytes = serialize();
     Data *data = deserialize(bytes);
     std::cout << "s = " << data->s << ", n = " << data->n << ", s2 = " << data->s2 << std::endl;
-    delete bytes;
+    delete reinterpret_cast<uint8_t*>(bytes);
     delete data;
 }

@@ -67,7 +67,7 @@ Subtype polymorphism, abstract classes, interfaces
 
 - [x] ex00: Polymorphism, or
 	"When the sorcerer thinks you’d be cuter as a sheep"
-- [x] ex01: I don’t want to set theworld on fire
+- [x] ex01: I don’t want to set the world on fire
 - [x] ex02: This code is unclean. PURIFY IT!
 
 Bonus:

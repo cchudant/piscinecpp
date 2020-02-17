@@ -6,7 +6,7 @@
 /*   By: cchudant <cchudant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/05 20:43:33 by cchudant          #+#    #+#             */
-/*   Updated: 2020/01/28 13:47:46 by cchudant         ###   ########.fr       */
+/*   Updated: 2020/02/17 14:36:06 by cchudant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,4 +28,5 @@ A::A(const A &c)
 A &A::operator=(const A &c)
 {
 	(void)c;
+	return *this;
 }
