@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   span.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: skybt <skybt@student.42.fr>                +#+  +:+       +#+        */
+/*   By: cchudant <cchudant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/11 14:56:24 by cchudant          #+#    #+#             */
-/*   Updated: 2020/01/11 22:58:46 by cchudant         ###   ########.fr       */
+/*   Updated: 2020/02/17 16:26:01 by cchudant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,27 +32,23 @@ Span::~Span()
 {
 }
 
+Span::Span(const Span &o): _n(o._n), _vec(o._vec)
+{
+}
+
+Span &Span::operator=(const Span &o)
+{
+    _n = o._n;
+    _vec = o._vec;
+    return *this;
+}
+
 void Span::addNumber(int n)
 {
     if (_vec.size() >= _n)
         throw Span::SpanFullException();
     _vec.push_back(n);
 }
-
-class SpanCmp
-{
-        int _el;
-    public:
-        SpanCmp(int span): _el(span) {}
-        bool operator()(int elA, int elB)
-        {
-            if (elA == _el)
-                return false;
-            printf("_el = %d; (a, b) = (%d, %d)\n", _el, elA, elB);
-            printf("abs = %d / %d\n", elA - _el, elB - _el);
-            return std::abs(elA - _el) < std::abs(elB - _el);
-        }
-};
 
 int Span::shortestSpan() const
 {
@@ -62,9 +58,11 @@ int Span::shortestSpan() const
     std::vector<int> spans(_vec);
     for (std::vector<int>::iterator span_ite = spans.begin(); span_ite != spans.end(); ++span_ite)
     {
-        printf("ayaya %d\n", *span_ite);
-        std::vector<int>::const_iterator res = std::min_element(_vec.begin(), _vec.end(), SpanCmp(*span_ite));
-        *span_ite = std::abs(spans[res - _vec.begin()] - *span_ite);
+        int min_diff = INT_MAX;
+        for (std::vector<int>::const_iterator ite = _vec.begin(); ite != _vec.end(); ++ite)
+            if (ite - _vec.begin() != span_ite - spans.begin())
+                min_diff = std::min(std::abs(*span_ite - *ite), min_diff);
+        *span_ite = min_diff;
     }
     return *std::min_element(spans.begin(), spans.end());
 }

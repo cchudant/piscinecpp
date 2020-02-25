@@ -109,9 +109,9 @@ C++ Templates
 
 Templated containers, iterators, algorithms
 
-- [ ] ex00: Easy find
-- [ ] ex01: Span
-- [ ] ex02: Mutated abomination
+- [x] ex00: Easy find
+- [x] ex01: Span
+- [x] ex02: Mutated abomination
 
 Bonus:
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: skybt <skybt@student.42.fr>                +#+  +:+       +#+        */
+/*   By: cchudant <cchudant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/05 23:45:26 by cchudant          #+#    #+#             */
-/*   Updated: 2020/01/06 00:03:52 by cchudant         ###   ########.fr       */
+/*   Updated: 2020/02/17 15:07:18 by cchudant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,5 +29,13 @@ int main()
     std::cout << easyfind(v, 3) << std::endl;
     for (std::vector<int>::iterator ite = v.begin(); ite < v.end(); ite++)
         std::cout << *ite << std::endl;
+    try
+    {
+        std::cout << easyfind(v, 5) << std::endl;
+    }
+    catch (NotFoundException &e)
+    {
+        std::cout << "Not found!" << std::endl;
+    }
     return 0;
 }
